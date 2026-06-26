@@ -374,7 +374,7 @@
                 <p class="text-center text-xs text-[#AAB3C5] uppercase tracking-wider mb-16">Настоящие отзывы владельцев из Яндекс Карт</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                    <div class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_8px_32_0_rgba(0,82,255,0.15)] p-6 md:p-8 rounded-3xl relative overflow-hidden flex flex-col justify-between group hover:-translate-y-2 transition-transform duration-300 text-left">
+                    <div class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_8px_32px_0_rgba(0,82,255,0.15)] p-6 md:p-8 rounded-3xl relative overflow-hidden flex flex-col justify-between group hover:-translate-y-2 transition-transform duration-300 text-left">
                         <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-600/20 rounded-full blur-2xl pointer-events-none" aria-hidden="true"></div>
                         <div class="relative z-10 flex flex-col h-full">
                             <div class="flex items-center justify-between mb-6">
@@ -451,7 +451,7 @@
 
         <section id="gallery" class="py-24 relative z-20">
             <div class="container mx-auto px-6 max-w-7xl">
-                <h2 class="text-3xl font-black uppercase tracking-widest mb-4">Gallery <span class="text-[#0052FF]">Техцентра</span></h2>
+                <h2 class="text-3xl font-black uppercase tracking-widest mb-4">Галерея <span class="text-[#0052FF]">Техцентра</span></h2>
                 <p class="text-xs text-[#AAB3C5] uppercase tracking-wider mb-16">Производственные боксы, оборудование и рабочие процессы</p>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -751,13 +751,22 @@
             if (phone) {
                 phone.addEventListener('input', (e) => {
                     let num = e.target.value.replace(/\D/g, '');
+                    
+                    if (!num) {
+                        e.target.value = '';
+                        return;
+                    }
+                    if (num.length === 1 && (num === '7' || num === '8')) {
+                        e.target.value = '+7 (';
+                        return;
+                    }
                     if (num.startsWith('7') || num.startsWith('8')) {
                         num = num.substring(1);
                     }
-                    num = num.substring(0, 10);
                     
-                    let val = '';
-                    if (num.length > 0) val = '+7 (' + num.substring(0, 3);
+                    num = num.substring(0, 10);
+                    let val = '+7 (';
+                    if (num.length > 0) val += num.substring(0, 3);
                     if (num.length > 3) val += ') ' + num.substring(3, 6);
                     if (num.length > 6) val += '-' + num.substring(6, 8);
                     if (num.length > 8) val += '-' + num.substring(8, 10);
@@ -800,23 +809,20 @@
                             status.textContent = 'Заявка успешно отправлена!';
                             status.className = 'text-xs font-bold uppercase tracking-widest mt-4 text-center text-green-400 drop-shadow-[0_0_10px_rgba(0,82,255,0.3)]';
                             form.reset();
-                            if (privacy) {
-                                privacy.checked = false;
-                                submit.disabled = true;
-                                submit.className = "w-full mt-4 rounded-xl uppercase tracking-widest font-black text-xs py-5 text-center text-gray-500 bg-white/5 border border-white/10 cursor-not-allowed transition-all duration-300";
-                            }
+                            if (privacy) privacy.checked = false;
+                            submit.disabled = true;
+                            submit.className = "w-full mt-4 rounded-xl uppercase tracking-widest font-black text-xs py-5 text-center text-gray-500 bg-white/5 border border-white/10 cursor-not-allowed transition-all duration-300";
                         } else {
                             status.textContent = 'Ошибка сервера. Попробуйте позже.';
                             status.className = 'text-xs font-bold uppercase tracking-widest mt-4 text-center text-red-500';
+                            submit.disabled = false;
+                            submit.textContent = 'ОТПРАВИТЬ ЗАПРОС';
                         }
                     } catch {
                         status.textContent = 'Ошибка сети. Проверьте подключение.';
                         status.className = 'text-xs font-bold uppercase tracking-widest mt-4 text-center text-red-500';
-                    } finally {
-                        if (!form.reset) {
-                            submit.disabled = false;
-                            submit.textContent = 'ОТПРАВИТЬ ЗАПРОС';
-                        }
+                        submit.disabled = false;
+                        submit.textContent = 'ОТПРАВИТЬ ЗАПРОС';
                     }
                 });
             }
