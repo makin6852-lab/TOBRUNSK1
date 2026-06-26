@@ -8,7 +8,12 @@ export default async function handler(req, res) {
     const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
     const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
-    const text = `🔥 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}`;
+    if (!BOT_TOKEN || !CHAT_ID) {
+        console.error('Ошибка: Переменные окружения TELEGRAM_BOT_TOKEN или TELEGRAM_CHAT_ID не настроены в Vercel!');
+        return res.status(500).json({ error: 'Server environment misconfigured' });
+    }
+
+    const text = `🔥 *Новая заявка с сайта!*\n\n👤 *Имя:* ${name}\n📞 *Телефон:* ${phone}`;
     const TELEGRAM_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
     try {
@@ -18,16 +23,23 @@ export default async function handler(req, res) {
             body: JSON.stringify({
                 chat_id: CHAT_ID,
                 text: text,
-                parse_mode: 'HTML'
+                parse_mode: 'Markdown'
             })
         });
 
-        if (response.ok) {
+        const telegramData = await response.json();
+
+        if (response.ok && telegramData.ok) {
             return res.status(200).json({ success: true });
         } else {
-            return res.status(500).json({ error: 'Failed to send to Telegram' });
+            console.error('Telegram API вернул ошибку:', telegramData);
+            return res.status(500).json({ 
+                error: 'Failed to send to Telegram', 
+                telegramError: telegramData.description || 'Unknown error' 
+            });
         }
     } catch (error) {
+        console.error('Критическая ошибка сети при запросе к Telegram:', error);
         return res.status(500).json({ error: error.message });
     }
 }
