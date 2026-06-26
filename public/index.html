@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ремонт Авто Брянск | Премиальный Техцентр M-Performance</title>
-    <meta name="description" content="Премиальный ремонт и техническое обслуживание автомобилей в Брянске. Диагностика, ТО, замена масла, ремонт АКПП и ДВС. Пригон авто под ключ.">
+    <meta name="description" content="Премиальный ремонт и technical обслуживание автомобилей в Брянске. Диагностика, ТО, замена масла, ремонт АКПП и ДВС. Пригон авто под ключ.">
     <meta name="keywords" content="ремонт авто Брянск, автосервис Брянск, замена масла, ремонт АКПП, пригон авто, диагностика">
     <link rel="canonical" href="https://tmdclub.ru/">
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval'; script-src 'self' https://unpkg.com https://*.yandex.ru https://*.yandex.net 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://unpkg.com https://fonts.googleapis.com https://*.yandex.ru https://*.yandex.net 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: https://*.yandex.ru https://*.yandex.net; iframe-src 'self' https://yandex.ru https://*.yandex.ru;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval'; script-src 'self' https://unpkg.com https://*.yandex.ru https://*.yandex.net 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://unpkg.com https://fonts.googleapis.com https://*.yandex.ru https://*.yandex.net 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: https://*.yandex.ru https://*.yandex.net; iframe-src 'self' https://yandex.ru canvas: https://*.yandex.ru https://yandex.ru/map-widget/v1/;">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <meta property="og:type" content="website">
@@ -20,11 +20,12 @@
     <link rel="stylesheet" href="dist/css/output.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     
+    <link rel="preload" href="img/logos.webp" as="image" type="image/webp" fetchpriority="high">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- CSS ДЛЯ МОБИЛЬНОГО КАТАЛОГА (Железобетонная механика без багов) -->
     <style>
         @media (max-width: 639px) {
             .mobile-catalog-hide { display: none !important; }
@@ -36,6 +37,21 @@
         @keyframes fade-in-card {
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        a, button, [role="button"] {
+            touch-action: manipulation;
+            cursor: pointer;
+        }
+        #lead-form input[type="text"], 
+        #lead-form input[type="tel"] {
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        @media (min-width: 640px) {
+            .mobile-catalog-show {
+                display: none !important;
+            }
         }
     </style>
 
@@ -76,12 +92,12 @@
     <div class="studio-lamp lamp-2" aria-hidden="true"></div>
 
     <header id="header" class="fixed top-0 w-full z-[60] bg-[#030612]/80 backdrop-blur-xl border-b border-[#0052FF]/20 transition-all duration-300">
-        <div class="container mx-auto px-6 max-w-7xl flex items-center justify-between h-20">
-            <div class="w-[60%] lg:w-[30%] flex items-center">
-                <a href="#" class="flex items-center group gap-4" aria-label="На главную">
-                    <img src="img/logo.png" onerror="this.style.display='none'" class="h-10 lg:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" alt="Ремонт Авто Брянск">
-                    <div class="flex flex-col">
-                        <span class="text-lg lg:text-2xl font-black tracking-widest uppercase leading-none">
+        <div class="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between h-20">
+            <div class="flex items-center shrink-0 min-w-0">
+                <a href="#" class="flex items-center group gap-2 sm:gap-4" aria-label="На главную">
+                    <img src="img/logo.png" onerror="this.style.display='none'" class="h-9 sm:h-10 lg:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 shrink-0" alt="Ремонт Авто Брянск">
+                    <div class="flex flex-col min-w-0">
+                        <span class="text-sm sm:text-base lg:text-2xl font-black tracking-widest uppercase leading-none truncate">
                             РЕМОНТ <span class="text-[#0052FF] group-hover:text-cyan-400 transition-colors">АВТОБРЯНСК</span><span>.</span>
                         </span>
                         <span class="text-[8px] lg:text-[10px] text-[#AAB3C5] tracking-widest uppercase mt-1 font-medium hidden sm:block">Премиальный техцентр</span>
@@ -98,12 +114,12 @@
                 <a href="#reviews" class="hover:text-white transition-all">Отзывы</a>
             </nav>
 
-            <div class="w-[40%] lg:w-[30%] flex items-center justify-end gap-5">
+            <div class="flex items-center justify-end gap-3 sm:gap-5 ml-auto shrink-0">
                 <a href="tel:+74832777741" class="hidden xl:block text-white font-black text-sm hover:text-[#0052FF] transition-colors whitespace-nowrap">+7 (4832) 77-77-41</a>
-                <a href="#order" class="premium-btn sm shrink-0 hidden sm:flex">Запись</a>
+                <a href="#order" class="premium-btn sm shrink-0 flex text-[11px] sm:text-xs px-4 sm:px-6 py-2">Запись</a>
                 
-                <button id="mobile-menu-btn" class="lg:hidden text-white p-2 focus:outline-none z-[70] relative ml-2">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button id="mobile-menu-btn" class="lg:hidden text-white p-1.5 focus:outline-none z-[70] relative ml-1">
+                    <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path id="burger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         <path id="close-icon" class="hidden text-[#0052FF]" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
@@ -122,7 +138,7 @@
             <a href="#delivery-service" class="mobile-link text-[#0052FF] hover:text-white transition-colors">Пригон Авто</a>
             <a href="#reviews" class="mobile-link hover:text-[#0052FF] transition-colors">Отзывы</a>
             <div class="w-16 h-px bg-white/20 my-2"></div>
-            <a href="tel:+74832777741" class="text-lg text-[#0052FF] border border-[#0052FF]/30 px-8 py-4 rounded-2xl bg-[#0052FF]/10 backdrop-blur-md shadow-[0_0_20px_rgba(0,82,255,0.2)]">+7 (4832) 77-77-41</a>
+            <a href="tel:+74832777741" class="mobile-link text-lg text-[#0052FF] border border-[#0052FF]/30 px-8 py-4 rounded-2xl bg-[#0052FF]/10 backdrop-blur-md shadow-[0_0_20px_rgba(0,82,255,0.2)]">+7 (4832) 77-77-41</a>
             <a href="#order" class="mobile-link text-sm text-gray-400 mt-2 underline underline-offset-4">Оставить заявку</a>
         </nav>
     </div>
@@ -148,7 +164,7 @@
                 <div class="lg:col-span-7 relative flex items-center justify-center mt-10 lg:mt-0 cinema-viewport">
                     <div id="cinema-stage" class="relative w-full h-full flex items-center justify-center">
                         <div id="car-container" class="relative w-full max-w-[850px] mx-auto translate-y-6 lg:translate-x-4">
-                            <img src="img/logos.webp" id="layer-body" class="relative w-full h-auto z-10 filter contrast-125 brightness-110 drop-shadow-[0_20px_50px_rgba(0,82,255,0.2)]" alt="Премиальный автомобиль BMW">
+                            <img src="img/logos.webp" id="layer-body" fetchpriority="high" class="relative w-full h-auto z-10 filter contrast-125 brightness-110 drop-shadow-[0_20px_50px_rgba(0,82,255,0.2)]" alt="Премиальный автомобиль BMW">
                             <div id="car-shadow" aria-hidden="true"></div>
                         </div>
                     </div>
@@ -156,7 +172,6 @@
             </div>
         </section>
 
-        <!-- СЕКЦИЯ УСЛУГ (Переработаны цвета: Глубокий синий неон вместо серого, идеальный каталог) -->
         <section id="services" class="py-24 relative z-20">
             <div class="container mx-auto px-6 max-w-7xl">
                 <div class="flex items-center justify-between mb-12 sm:mb-16">
@@ -166,7 +181,6 @@
                 <div class="relative">
                     <div id="services-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 pb-4">
                         
-                        <!-- ПЕРВЫЕ 3 КАРТОЧКИ (Видны всегда) -->
                         <div class="border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" data-aos="fade-up" tabindex="0" role="button">
                             <div class="text-2xl mb-3" aria-hidden="true">🛢️</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Замена масла в двигателе</h3>
@@ -180,7 +194,6 @@
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">ЗАПРАВКА КОНДИЦИОНЕРОВ</h3>
                         </div>
 
-                        <!-- ОСТАЛЬНЫЕ 9 КАРТОЧЕК (Скрываются на мобилке классом mobile-catalog-hide, на десктопе всегда sm:!block) -->
                         <div class="mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" tabindex="0" role="button">
                             <div class="text-2xl mb-3" aria-hidden="true">🚘</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">РЕМОНТ ПОДВЕСКИ</h3>
@@ -197,7 +210,7 @@
                             <div class="text-2xl mb-3" aria-hidden="true">⚡</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">РЕМОНТ РУЛЕВЫХ РЕЕК</h3>
                         </div>
-                        <div class="mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" tabindex="0" role="button">
+                        <div class="mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_8px_32px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" tabindex="0" role="button">
                             <div class="text-2xl mb-3" aria-hidden="true">🕹️</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">РЕМОНТ АКПП</h3>
                         </div>
@@ -224,7 +237,6 @@
             </div>
         </section>
 
-        <!-- СЕКЦИЯ: АКЦИИ -->
         <section id="promotions" class="py-20 relative z-20">
             <div class="container mx-auto px-6 max-w-7xl">
                 <h2 class="text-3xl font-black uppercase tracking-widest mb-16" data-aos="fade-right">Специальные <span class="text-[#0052FF]">Акции</span></h2>
@@ -282,7 +294,6 @@
             </div>
         </section>
 
-        <!-- СЕКЦИЯ: ПРОЦЕСС РАБОТЫ -->
         <section id="process" class="py-32 relative z-20">
             <div class="container mx-auto px-6 max-w-3xl relative z-10">
                 <h2 class="text-3xl font-black uppercase tracking-widest mb-28 text-center" data-aos="fade-up">Процесс <span class="text-[#0052FF]">Работы</span></h2>
@@ -357,18 +368,87 @@
             </div>
         </section>
 
-        <!-- СЕКЦИЯ: ОТЗЫВЫ -->
         <section id="reviews" class="py-32 relative z-20">
             <div class="container mx-auto px-6 max-w-7xl">
                 <h2 class="text-3xl font-black uppercase tracking-widest mb-4 text-center">Отзывы <span class="text-[#0052FF]">Клиентов</span></h2>
-                <p class="text-center text-xs text-[#AAB3C5] uppercase tracking-wider mb-16">Настоящие отзывы владельцев напрямую из Яндекс Карт</p>
-                <div class="w-full max-w-4xl mx-auto rounded-3xl overflow-hidden border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_8px_32px_0_rgba(0,82,255,0.15)] p-2 h-[550px]">
-                    <iframe src="https://yandex.ru/maps-reviews-widget/42649917495?comments" class="w-full h-full rounded-2xl border-0 bg-transparent" loading="lazy" title="Интерактивные отзывы о техцентре"></iframe>
+                <p class="text-center text-xs text-[#AAB3C5] uppercase tracking-wider mb-16">Настоящие отзывы владельцев из Яндекс Карт</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <div class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_8px_32px_0_rgba(0,82,255,0.15)] p-6 md:p-8 rounded-3xl relative overflow-hidden flex flex-col justify-between group hover:-translate-y-2 transition-transform duration-300">
+                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-600/20 rounded-full blur-2xl pointer-events-none" aria-hidden="true"></div>
+                        <div class="relative z-10 flex flex-col h-full">
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-[#0052FF]/20 flex items-center justify-center text-lg text-white font-bold border border-[#0052FF]/40">М</div>
+                                    <div>
+                                        <h3 class="text-sm font-bold text-white">Максим Г.</h3>
+                                        <p class="text-[10px] text-[#AAB3C5] uppercase tracking-widest">Знаток города</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-[#FFD700] text-sm">
+                                    ★ ★ ★ ★ ★
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-300 leading-relaxed font-medium mb-6 flex-grow">
+                                "Отличный сервис! Приехал на замену масла в АКПП. Ребята сделали всё быстро и аккуратно. В зоне ожидания можно попить кофе и посмотреть за процессом через стекло. Цены адекватные, лишнего не навязывают. Однозначно рекомендую."
+                            </p>
+                            <div class="text-[9px] text-[#AAB3C5] uppercase tracking-widest font-bold">Оценка на Яндекс Картах</div>
+                        </div>
+                    </div>
+
+                    <div class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_8px_32px_0_rgba(0,82,255,0.15)] p-6 md:p-8 rounded-3xl relative overflow-hidden flex flex-col justify-between group hover:-translate-y-2 transition-transform duration-300 text-left">
+                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-600/20 rounded-full blur-2xl pointer-events-none" aria-hidden="true"></div>
+                        <div class="relative z-10 flex flex-col h-full">
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-[#0052FF]/20 flex items-center justify-center text-lg text-white font-bold border border-[#0052FF]/40">Е</div>
+                                    <div>
+                                        <h3 class="text-sm font-bold text-white">Евгений С.</h3>
+                                        <p class="text-[10px] text-[#AAB3C5] uppercase tracking-widest">Клиент</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-[#FFD700] text-sm">
+                                    ★ ★ ★ ★ ★
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-300 leading-relaxed font-medium mb-6 flex-grow">
+                                "Делал диагностику двигателя и подвески перед покупкой авто. Инженер всё подробно рассказал, показал каждый нюанс. Оборудование дилерского уровня, чистота в боксах как в операционной. Очень грамотный подход к делу."
+                            </p>
+                            <div class="text-[9px] text-[#AAB3C5] uppercase tracking-widest font-bold">Оценка на Яндекс Картах</div>
+                        </div>
+                    </div>
+
+                    <div class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_8px_32px_0_rgba(0,82,255,0.15)] p-6 md:p-8 rounded-3xl relative overflow-hidden flex flex-col justify-between group hover:-translate-y-2 transition-transform duration-300 text-left">
+                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-600/20 rounded-full blur-2xl pointer-events-none" aria-hidden="true"></div>
+                        <div class="relative z-10 flex flex-col h-full">
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-[#0052FF]/20 flex items-center justify-center text-lg text-white font-bold border border-[#0052FF]/40">А</div>
+                                    <div>
+                                        <h3 class="text-sm font-bold text-white">Александр</h3>
+                                        <p class="text-[10px] text-[#AAB3C5] uppercase tracking-widest">Знаток города</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-[#FFD700] text-sm">
+                                    ★ ★ ★ ★ ★
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-300 leading-relaxed font-medium mb-6 flex-grow">
+                                "Пригонял машину из Кореи через этот сервис. Сопровождали на всех этапах: от подбора до постановки на учёт. Машина пришла в идеале, сразу же сделали полное ТО. Спасибо команде за профессионализм!"
+                            </p>
+                            <div class="text-[9px] text-[#AAB3C5] uppercase tracking-widest font-bold">Оценка на Яндекс Картах</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 text-center">
+                    <a href="https://yandex.ru/maps/org/remont_avtobryansk/42649917495/reviews/" target="_blank" rel="noopener" class="inline-block border border-[#0052FF]/50 bg-[#0052FF]/10 hover:bg-[#0052FF]/20 text-white text-xs font-bold uppercase tracking-widest py-4 px-8 rounded-xl transition-colors shadow-[0_0_20px_rgba(0,82,255,0.15)]">
+                        Смотреть все отзывы на Яндексе
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- СЕКЦИЯ: ГАЛЕРЕЯ -->
         <section id="gallery" class="py-24 relative z-20">
             <div class="container mx-auto px-6 max-w-7xl">
                 <h2 class="text-3xl font-black uppercase tracking-widest mb-4">Галерея <span class="text-[#0052FF]">Техцентра</span></h2>
@@ -376,37 +456,37 @@
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] p-2 rounded-2xl overflow-hidden h-64 relative group">
-                        <img src="img/foto1.webp" loading="lazy" class="w-full h-full object-cover rounded-xl opacity-80 group-hover:opacity-100 transition-opacity duration-500" alt="Фасад здания техцентра">
+                        <img src="img/foto1.webp" loading="lazy" decoding="async" class="w-full h-full object-cover rounded-xl opacity-80 group-hover:opacity-100 transition-opacity duration-500" alt="Фасад здания техцентра">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#030612]/90 via-transparent to-transparent p-6 flex items-end pointer-events-none">
                             <span class="text-xs font-bold uppercase tracking-wider text-white drop-shadow-md">Фасад здания техцентра</span>
                         </div>
                     </div>
                     <div class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] p-2 rounded-2xl overflow-hidden h-64 relative group">
-                        <img src="img/foto2.webp" loading="lazy" class="w-full h-full object-cover rounded-xl opacity-80 group-hover:opacity-100 transition-opacity duration-500" alt="Премиальная зона ожидания">
+                        <img src="img/foto2.webp" loading="lazy" decoding="async" class="w-full h-full object-cover rounded-xl opacity-80 group-hover:opacity-100 transition-opacity duration-500" alt="Премиальная зона ожидания">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#030612]/90 via-transparent to-transparent p-6 flex items-end pointer-events-none">
                             <span class="text-xs font-bold uppercase tracking-wider text-white drop-shadow-md">Премиальная зона ожидания</span>
                         </div>
                     </div>
                     <div class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] p-2 rounded-2xl overflow-hidden h-64 relative group">
-                        <img src="img/foto3.webp" loading="lazy" class="w-full h-full object-cover rounded-xl opacity-80 group-hover:opacity-100 transition-opacity duration-500" alt="Зона приема заказов и ресепшен">
+                        <img src="img/foto3.webp" loading="lazy" decoding="async" class="w-full h-full object-cover rounded-xl opacity-80 group-hover:opacity-100 transition-opacity duration-500" alt="Зона приема заказов и ресепшен">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#030612]/90 via-transparent to-transparent p-6 flex items-end pointer-events-none">
                             <span class="text-xs font-bold uppercase tracking-wider text-white drop-shadow-md">Зона приема заказов и ресепшен</span>
                         </div>
                     </div>
                     <div class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] p-2 rounded-2xl overflow-hidden h-64 relative group">
-                        <img src="img/foto4.webp" loading="lazy" class="w-full h-full object-cover rounded-xl opacity-80 group-hover:opacity-100 transition-opacity duration-500" alt="Зона технического обслуживания">
+                        <img src="img/foto4.webp" loading="lazy" decoding="async" class="w-full h-full object-cover rounded-xl opacity-80 group-hover:opacity-100 transition-opacity duration-500" alt="Зона технического обслуживания">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#030612]/90 via-transparent to-transparent p-6 flex items-end pointer-events-none">
                             <span class="text-xs font-bold uppercase tracking-wider text-white drop-shadow-md">Зона технического обслуживания</span>
                         </div>
                     </div>
                     <div class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] p-2 rounded-2xl overflow-hidden h-64 relative group">
-                        <img src="img/foto5.webp" loading="lazy" class="w-full h-full object-cover rounded-xl opacity-80 group-hover:opacity-100 transition-opacity duration-500" alt="Профессиональное оборудование">
+                        <img src="img/foto5.webp" loading="lazy" decoding="async" class="w-full h-full object-cover rounded-xl opacity-80 group-hover:opacity-100 transition-opacity duration-500" alt="Профессиональное оборудование">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#030612]/90 via-transparent to-transparent p-6 flex items-end pointer-events-none">
                             <span class="text-xs font-bold uppercase tracking-wider text-white drop-shadow-md">Профессиональное оборудование</span>
                         </div>
                     </div>
                     <div class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] p-2 rounded-2xl overflow-hidden h-64 relative group">
-                        <img src="img/foto6.webp" loading="lazy" class="w-full h-full object-cover rounded-xl opacity-80 group-hover:opacity-100 transition-opacity duration-500" alt="Диагностический пост M-Performance">
+                        <img src="img/foto6.webp" loading="lazy" decoding="async" class="w-full h-full object-cover rounded-xl opacity-80 group-hover:opacity-100 transition-opacity duration-500" alt="Диагностический пост M-Performance">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#030612]/90 via-transparent to-transparent p-6 flex items-end pointer-events-none">
                             <span class="text-xs font-bold uppercase tracking-wider text-white drop-shadow-md">Диагностический пост M-Performance</span>
                         </div>
@@ -415,13 +495,12 @@
             </div>
         </section>
 
-        <!-- СЕКЦИЯ: ПРИГОН АВТОМОБИЛЕЙ -->
         <section id="delivery-service" class="max-w-7xl mx-auto px-4 py-16 mb-20 relative z-20">
             <div class="flex flex-col lg:flex-row items-center justify-between gap-12 border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_8px_32px_0_rgba(0,82,255,0.15)] p-8 md:p-12 rounded-3xl overflow-hidden">
                 
                 <div class="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-[#0052FF]/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
-                <div class="w-full lg:w-1/2 flex flex-col justify-center relative z-10">
+                <div class="w-full lg:w-1/2 flex flex-col justify-center relative z-10 text-left">
                     <span class="text-[10px] uppercase font-bold tracking-widest text-[#0052FF] mb-3">Премиальный сервис доставки</span>
                     <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight text-white mb-6 leading-tight">
                         Пригон<br>автомобилей под ключ
@@ -444,7 +523,7 @@
 
                 <div class="w-full lg:w-1/2 flex items-center justify-center relative z-10">
                     <div class="relative w-full aspect-[16/10] rounded-2xl border border-[#0052FF]/40 bg-[#051024]/80 p-3 backdrop-blur-md shadow-[0_0_50px_rgba(0,82,255,0.3)] overflow-hidden">
-                        <img src="img/privoz.webp" alt="Пригон автомобилей под ключ" class="absolute inset-3 w-[calc(100%-24px)] h-[calc(100%-24px)] object-cover rounded-xl opacity-100 transition-opacity duration-300">
+                        <img src="img/privoz.webp" loading="lazy" decoding="async" alt="Пригон автомобилей под ключ" class="absolute inset-3 w-[calc(100%-24px)] h-[calc(100%-24px)] object-cover rounded-xl opacity-100 transition-opacity duration-300">
                         <div class="absolute -inset-px rounded-2xl bg-gradient-to-br from-white/20 via-transparent to-transparent pointer-events-none"></div>
                     </div>
                 </div>
@@ -452,9 +531,8 @@
             </div>
         </section>
 
-        <!-- СЕКЦИЯ: КОНТАКТЫ И ФОРМА -->
         <section id="contacts" class="py-24 relative z-20">
-            <div class="container mx-auto px-6 max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div class="container mx-auto px-6 max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-start text-left">
                 
                 <div class="lg:col-span-5 space-y-8">
                     <h2 class="text-3xl font-black uppercase tracking-wider mb-8">Контакты техцентра</h2>
@@ -497,8 +575,12 @@
                         <h3 class="font-bold uppercase tracking-widest mb-6 text-sm">Форма записи</h3>
                         
                         <form id="lead-form" class="space-y-4" novalidate>
-                            <input type="hidden" name="apikey" value="ЗАВТРА_ВСТАВИШЬ_СЮДА_КЛЮЧ">
                             
+                            <div id="honeypot-wrapper" style="display: none !important; visibility: hidden !important;" aria-hidden="true">
+                                <label for="form-email-confirm">Leave this field blank</label>
+                                <input type="text" id="form-email-confirm" name="email_confirm" tabindex="-1" autocomplete="off">
+                            </div>
+
                             <div class="relative">
                                 <input type="text" id="user-name" name="name" required placeholder="ВАШЕ ИМЯ" autocomplete="name" class="w-full p-4 rounded-xl bg-[#030612]/50 border border-white/20 text-white text-xs outline-none focus:border-[#0052FF] transition-colors" aria-label="Ваше имя" />
                             </div>
@@ -507,7 +589,6 @@
                                 <input type="tel" id="phone-mask" name="phone" required placeholder="+7 (___) ___-__-__" autocomplete="tel" class="w-full p-4 rounded-xl bg-[#030612]/50 border border-white/20 text-white text-xs outline-none focus:border-[#0052FF] transition-colors" aria-label="Номер телефона" />
                             </div>
                             
-                            <!-- ГАЛОЧКА 152-ФЗ -->
                             <div class="flex items-start gap-2 pt-2">
                                 <input type="checkbox" id="privacy-agree" class="mt-0.5 w-4 h-4 rounded border-[#0052FF]/50 bg-[#030612] checked:bg-[#0052FF] cursor-pointer focus:ring-0" aria-label="Согласие на обработку персональных данных" />
                                 <label for="privacy-agree" class="text-[9px] text-[#AAB3C5] uppercase tracking-wide leading-normal cursor-pointer select-none">
@@ -515,17 +596,16 @@
                                 </label>
                             </div>
                             
-                            <!-- КНОПКА ЗАБЛОКИРОВАНА ПО УМОЛЧАНИЮ -->
                             <button type="submit" id="submit-btn" disabled class="w-full mt-4 rounded-xl uppercase tracking-widest font-black text-xs py-5 text-center text-gray-500 bg-white/5 border border-white/10 cursor-not-allowed transition-all duration-300">Отправить запрос</button>
                         </form>
                         <div id="form-status" class="hidden text-xs font-bold uppercase tracking-widest mt-4 text-center"></div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-7 h-[500px] lg:h-auto rounded-3xl overflow-hidden border border-[#0052FF]/30 bg-[#051024]/80 p-2 backdrop-blur-md shadow-[0_8px_32px_0_rgba(0,82,255,0.15)]">
-                    <iframe src="https://yandex.ru/map-widget/v1/?text=%D0%91%D1%80%D1%8F%D0%BD%D1%81%D0%BA%2C%20%D1%83%D0%BB%20%D0%9Be%D0%B6%D0%B8%D1%86%D0%BA%D0%B0%D1%8F%2C%201%D0%93&z=16.5" 
+                <div class="lg:col-span-7 w-full h-[400px] lg:h-[600px] rounded-3xl overflow-hidden border border-[#0052FF]/30 bg-[#051024]/80 p-2 backdrop-blur-md shadow-[0_8px_32px_0_rgba(0,82,255,0.15)]">
+                    <iframe src="https://yandex.ru/map-widget/v1/?ll=34.349412%2C53.270329&mode=search&oid=42649917495&ol=biz&z=16.5" 
                             loading="lazy"
-                            class="w-full h-full rounded-2xl border-0 opacity-90 hover:opacity-100 transition-opacity duration-300" 
+                            class="w-full h-full rounded-2xl border-0 opacity-95 hover:opacity-100 transition-opacity duration-300" 
                             title="Расположение техцентра на Яндекс Картах">
                     </iframe>
                 </div>
@@ -534,7 +614,7 @@
         </section>
     </main>
 
-    <footer class="border-t border-[#0052FF]/20 bg-[#030612] relative z-20 py-12 mt-10">
+    <footer class="border-t border-[#0052FF]/20 bg-[#030612] relative z-20 py-12 mt-10 text-left">
         <div class="container mx-auto px-6 max-w-7xl">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start text-left">
                 
@@ -566,7 +646,6 @@
         </div>
     </footer>
 
-    <!-- Баннер Cookie -->
     <div id="cookie-banner" class="fixed bottom-6 inset-x-6 mx-auto max-w-4xl border border-[#0052FF]/30 bg-[#051024]/95 p-4 rounded-xl backdrop-blur-md z-[9999] hidden flex-col sm:flex-row items-center justify-between gap-4 shadow-[0_0_30px_rgba(0,82,255,0.2)]">
         <div class="text-[11px] uppercase tracking-wider text-gray-200 font-medium leading-relaxed text-center sm:text-left">
             Наш сайт использует файлы cookie. Продолжая использовать сайт, вы соглашаетесь с условиями <a href="privacy.html" class="text-[#0052FF] underline hover:text-white">Политики конфиденциальности</a>.
@@ -580,7 +659,6 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. Мобильное меню
             const btn = document.getElementById('mobile-menu-btn');
             const overlay = document.getElementById('mobile-menu-overlay');
             const burgerIcon = document.getElementById('burger-icon');
@@ -598,27 +676,35 @@
 
                 btn.addEventListener('click', toggleMenu);
                 mobileLinks.forEach(link => {
-                    link.addEventListener('click', toggleMenu);
+                    link.addEventListener('click', () => {
+                        overlay.classList.add('opacity-0');
+                        overlay.classList.add('pointer-events-none');
+                        burgerIcon.classList.remove('hidden');
+                        closeIcon.classList.add('hidden');
+                        document.body.classList.remove('overflow-hidden');
+                    });
                 });
             }
 
-            // 2. ИДЕАЛЬНЫЙ КАТАЛОГ УСЛУГ ДЛЯ СМАРТФОНОВ
-            const toggleServicesBtn = document.getElementById('toggle-services-btn');
-            const hiddenCards = document.querySelectorAll('.mobile-catalog-hide, .mobile-catalog-show');
+            const originalBtn = document.getElementById('toggle-services-btn');
+            if (originalBtn) {
+                const toggleServicesBtn = originalBtn.cloneNode(true);
+                originalBtn.parentNode.replaceChild(toggleServicesBtn, originalBtn);
 
-            if (toggleServicesBtn && hiddenCards.length > 0) {
-                toggleServicesBtn.addEventListener('click', () => {
-                    let isExpanded = false;
+                const serviceCards = document.querySelectorAll('#services-grid > div:nth-child(n+4)');
+                let isExpanded = false;
+                
+                toggleServicesBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
                     
-                    hiddenCards.forEach(card => {
-                        // Если карточка скрыта
-                        if (card.classList.contains('mobile-catalog-hide')) {
+                    isExpanded = !isExpanded;
+                    
+                    serviceCards.forEach(card => {
+                        if (isExpanded) {
                             card.classList.remove('mobile-catalog-hide');
                             card.classList.add('mobile-catalog-show');
-                            isExpanded = true;
-                        } 
-                        // Если карточка уже открыта
-                        else {
+                        } else {
                             card.classList.add('mobile-catalog-hide');
                             card.classList.remove('mobile-catalog-show');
                         }
@@ -626,13 +712,19 @@
 
                     toggleServicesBtn.textContent = isExpanded ? 'СВЕРНУТЬ' : 'ОТКРЫТЬ ВЕСЬ КАТАЛОГ';
 
+                    if (typeof AOS !== 'undefined') {
+                        AOS.refresh();
+                    }
+                    if (window.lenis) {
+                        window.lenis.resize();
+                    }
+
                     if (!isExpanded) {
                         document.getElementById('services').scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                 });
             }
 
-            // 3. Блокировка кнопки до принятия 152-ФЗ
             const privacyCheckbox = document.getElementById('privacy-agree');
             const submitBtn = document.getElementById('submit-btn');
 
@@ -646,6 +738,126 @@
                         submitBtn.className = "w-full mt-4 rounded-xl uppercase tracking-widest font-black text-xs py-5 text-center text-gray-500 bg-white/5 border border-white/10 cursor-not-allowed transition-all duration-300";
                     }
                 });
+            }
+
+            const cookieBanner = document.getElementById('cookie-banner');
+            const cookieAcceptBtn = document.getElementById('cookie-accept-btn');
+            if (cookieBanner && cookieAcceptBtn) {
+                if (!localStorage.getItem('cookie-accepted')) {
+                    cookieBanner.classList.remove('hidden');
+                    cookieBanner.style.display = 'flex';
+                }
+                cookieAcceptBtn.addEventListener('click', () => {
+                    cookieBanner.style.display = 'none';
+                    cookieBanner.classList.add('hidden');
+                    localStorage.setItem('cookie-accepted', 'true');
+                });
+            }
+
+            const phoneInput = document.getElementById('phone-mask');
+            const leadForm = document.getElementById('lead-form');
+            const formStatus = document.getElementById('form-status');
+
+            if (phoneInput) {
+                phoneInput.addEventListener('input', (e) => {
+                    let input = e.target.value.replace(/\D/g, '');
+                    if (input.startsWith('7') || input.startsWith('8')) {
+                        input = input.substring(1);
+                    }
+                    input = input.substring(0, 10);
+                    
+                    let formatted = '';
+                    if (input.length > 0) {
+                        formatted = '+7 (' + input.substring(0, 3);
+                    }
+                    if (input.length >= 3) {
+                        formatted += ') ' + input.substring(3, 6);
+                    }
+                    if (input.length >= 6) {
+                        formatted += '-' + input.substring(6, 8);
+                    }
+                    if (input.length >= 8) {
+                        formatted += '-' + input.substring(8, 10);
+                    }
+                    e.target.value = formatted;
+                });
+            }
+
+            if (leadForm && formStatus) {
+                leadForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+
+                    const honeypotField = document.getElementById('form-email-confirm');
+                    if (honeypotField && honeypotField.value.length > 0) {
+                        updateStatus('Заявка успешно отправлена!', 'text-green-400 drop-shadow-[0_0_10px_rgba(0,82,255,0.3)]');
+                        leadForm.reset();
+                        return;
+                    }
+
+                    const nameField = document.getElementById('user-name');
+                    const phoneField = document.getElementById('phone-mask');
+
+                    if (!nameField || !nameField.value.trim()) {
+                        updateStatus('Пожалуйста, укажите ваше имя', 'text-red-500');
+                        return;
+                    }
+                    if (!phoneField || phoneField.value.replace(/\D/g, '').length < 11) {
+                        updateStatus('Введите корректный номер телефона', 'text-red-500');
+                        return;
+                    }
+
+                    toggleLoading(true);
+                    updateStatus(null, '');
+
+                    const formData = {
+                        name: nameField.value.trim(),
+                        phone: phoneField.value.trim()
+                    };
+
+                    try {
+                        const response = await fetch('/api/send-lead', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(formData)
+                        });
+
+                        if (response.ok) {
+                            updateStatus('Заявка успешно отправлена!', 'text-green-400 drop-shadow-[0_0_10px_rgba(0,82,255,0.3)]');
+                            leadForm.reset();
+                            if (privacyCheckbox) {
+                                privacyCheckbox.checked = false;
+                                submitBtn.disabled = true;
+                                submitBtn.className = "w-full mt-4 rounded-xl uppercase tracking-widest font-black text-xs py-5 text-center text-gray-500 bg-white/5 border border-white/10 cursor-not-allowed transition-all duration-300";
+                            }
+                        } else {
+                            updateStatus('Ошибка сервера. Попробуйте позже.', 'text-red-500');
+                        }
+                    } catch {
+                        updateStatus('Ошибка сети. Проверьте подключение.', 'text-red-500');
+                    } finaly {
+                        toggleLoading(false);
+                    }
+                });
+            }
+
+            function updateStatus(message, className) {
+                if (!message) {
+                    formStatus.className = "hidden text-xs font-bold uppercase tracking-widest mt-4 text-center";
+                    formStatus.textContent = "";
+                } else {
+                    formStatus.className = `text-xs font-bold uppercase tracking-widest mt-4 text-center ${className}`;
+                    formStatus.textContent = message;
+                }
+            }
+
+            function toggleLoading(isLoading) {
+                if (isLoading) {
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = "ОТПРАВКА...";
+                } else {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "ОТПРАВИТЬ ЗАПРОС";
+                }
             }
         });
     </script>

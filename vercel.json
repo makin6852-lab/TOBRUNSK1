@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/send-lead",
+      "destination": "/api/send-lead.js"
+    }
+  ]
+}
