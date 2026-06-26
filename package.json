@@ -1,0 +1,14 @@
+{
+  "name": "remont-avtobryansk",
+  "version": "1.0.0",
+  "description": "Премиальный техцентр Брянск",
+  "main": "src/js/main.js",
+  "scripts": {
+    "watch": "tailwindcss -i ./src/css/input.css -o ./public/dist/css/output.css --watch",
+    "build": "tailwindcss -i ./src/css/input.css -o ./public/dist/css/output.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "tailwindcss": "^4.0.0"
+  }
+}
