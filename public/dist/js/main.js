@@ -175,17 +175,20 @@ document.addEventListener("DOMContentLoaded", () => {
                     body: JSON.stringify(formData)
                 });
 
-                if (response.ok || response.status === 404) { 
+                if (response.ok) { 
                     formStatus.innerText = "ЗАЯВКА УСПЕШНО ПРИНЯТА! МАСТЕР СВЯЖЕТСЯ С ВАМИ.";
                     formStatus.className = "text-green-500 font-bold uppercase tracking-widest mt-4 text-center block";
                     leadForm.reset();
+                    submitBtn.disabled = true;
+                    submitBtn.innerText = "ОТПРАВЛЕНО";
                 } else {
-                    throw new Error();
+                    const errorData = await response.json().catch(() => ({}));
+                    throw new Error(errorData.telegramError || `Ошибка сервера: ${response.status}`);
                 }
             } catch (error) {
-                formStatus.innerText = "ОШИБКА ОТПРАВКИ. ПОПРОБУЙТЕ СНОВА.";
+                console.error("Форма не отправлена:", error);
+                formStatus.innerText = "ОШИБКА СЕРВЕРА. ПОПРОБУЙТЕ ПОЗЖЕ.";
                 formStatus.className = "text-red-500 font-bold uppercase tracking-widest mt-4 text-center block";
-            } finally {
                 submitBtn.disabled = false;
                 submitBtn.innerText = "ОТПРАВИТЬ ЗАПРОС";
             }
