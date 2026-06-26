@@ -743,88 +743,83 @@
                 });
             }
 
-            const phone = document.getElementById('phone-mask');
-            const form = document.getElementById('lead-form');
-            const status = document.getElementById('form-status');
+            const leadForm = document.getElementById('lead-form');
+    const formStatus = document.getElementById('form-status');
+    const privacyCheckbox = document.getElementById('privacy-agree');
+    
+    
+    let isSubmitting = false; 
 
-            if (phone) {
-                phone.addEventListener('input', (e) => {
-                    let num = e.target.value.replace(/\D/g, '');
-                    
-                    if (!num) {
-                        e.target.value = '';
-                        return;
-                    }
-                    if (num.length === 1 && (num === '7' || num === '8')) {
-                        e.target.value = '+7 (';
-                        return;
-                    }
-                    if (num.startsWith('7') || num.startsWith('8')) {
-                        num = num.substring(1);
-                    }
-                    
-                    num = num.substring(0, 10);
-                    let val = '+7 (';
-                    if (num.length > 0) val += num.substring(0, 3);
-                    if (num.length > 3) val += ') ' + num.substring(3, 6);
-                    if (num.length > 6) val += '-' + num.substring(6, 8);
-                    if (num.length > 8) val += '-' + num.substring(8, 10);
-                    
-                    e.target.value = val;
-                });
+    if (leadForm) {
+        leadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (isSubmitting) return; 
+
+            const nameInput = document.getElementById('user-name');
+            let isValid = true;
+
+            if (!nameInput.value.trim()) isValid = false;
+            if (phoneInput.value.replace(/\D/g, "").length < 11) isValid = false;
+
+            if (privacyCheckbox && !privacyCheckbox.checked) {
+                formStatus.innerText = "НЕОБХОДИМО ДАТЬ СОГЛАСИЕ НА ОБРАБОТКУ ДАННЫХ.";
+                formStatus.className = "text-red-500 font-bold uppercase tracking-widest mt-4 text-center block";
+                formStatus.classList.remove('hidden');
+                return;
             }
 
-            if (form && status) {
-                form.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-
-                    const nameInput = document.getElementById('user-name');
-                    if (!nameInput || !nameInput.value.trim()) {
-                        status.textContent = 'Пожалуйста, укажите ваше имя';
-                        status.className = 'text-xs font-bold uppercase tracking-widest mt-4 text-center text-red-500';
-                        return;
-                    }
-                    if (!phone || phone.value.replace(/\D/g, '').length < 11) {
-                        status.textContent = 'Введите корректный номер телефона';
-                        status.className = 'text-xs font-bold uppercase tracking-widest mt-4 text-center text-red-500';
-                        return;
-                    }
-
-                    submit.disabled = true;
-                    submit.textContent = 'ОТПРАВКА...';
-                    status.textContent = '';
-
-                    try {
-                        const res = await fetch('/api/send-lead', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                name: nameInput.value.trim(),
-                                phone: phone.value.trim()
-                            })
-                        });
-
-                        if (res.ok) {
-                            status.textContent = 'Заявка успешно отправлена!';
-                            status.className = 'text-xs font-bold uppercase tracking-widest mt-4 text-center text-green-400 drop-shadow-[0_0_10px_rgba(0,82,255,0.3)]';
-                            form.reset();
-                            if (privacy) privacy.checked = false;
-                            submit.disabled = true;
-                            submit.className = "w-full mt-4 rounded-xl uppercase tracking-widest font-black text-xs py-5 text-center text-gray-500 bg-white/5 border border-white/10 cursor-not-allowed transition-all duration-300";
-                        } else {
-                            status.textContent = 'Ошибка сервера. Попробуйте позже.';
-                            status.className = 'text-xs font-bold uppercase tracking-widest mt-4 text-center text-red-500';
-                            submit.disabled = false;
-                            submit.textContent = 'ОТПРАВИТЬ ЗАПРОС';
-                        }
-                    } catch {
-                        status.textContent = 'Ошибка сети. Проверьте подключение.';
-                        status.className = 'text-xs font-bold uppercase tracking-widest mt-4 text-center text-red-500';
-                        submit.disabled = false;
-                        submit.textContent = 'ОТПРАВИТЬ ЗАПРОС';
-                    }
-                });
+            if (!isValid) {
+                formStatus.innerText = "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ПОЛЯ КОРРЕКТНО.";
+                formStatus.className = "text-red-500 font-bold uppercase tracking-widest mt-4 text-center block";
+                formStatus.classList.remove('hidden');
+                return;
             }
+
+            isSubmitting = true; 
+
+            const submitBtn = leadForm.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerText = "ОТПРАВЛЯЕМ ЗАЯВКУ...";
+
+            const formData = {
+                name: nameInput.value.trim(),
+                phone: phoneInput.value
+            };
+
+            try {
+                formStatus.classList.remove('hidden');
+                formStatus.innerText = "СВЯЗЬ С СЕРВЕРОМ...";
+                formStatus.className = "text-white font-bold uppercase tracking-widest mt-4 text-center block";
+
+                const response = await fetch('/api/send-lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) { 
+                    formStatus.innerText = "ЗАЯВКА УСПЕШНО ПРИНЯТА! МАСТЕР СВЯЖЕТСЯ С ВАМИ.";
+                    formStatus.className = "text-green-500 font-bold uppercase tracking-widest mt-4 text-center block";
+                    leadForm.reset();
+                    submitBtn.disabled = true;
+                    submitBtn.innerText = "ОТПРАВЛЕНО";
+                   
+                } else {
+                    const errorData = await response.json().catch(() => ({}));
+                    throw new Error(errorData.telegramError || `Ошибка сервера: ${response.status}`);
+                }
+            } catch (error) {
+                console.error("Форма не отправлена:", error);
+                formStatus.innerText = "ОШИБКА СЕРВЕРА. ПОПРОБУЙТЕ ПОЗЖЕ.";
+                formStatus.className = "text-red-500 font-bold uppercase tracking-widest mt-4 text-center block";
+                
+                isSubmitting = false; 
+                submitBtn.disabled = false;
+                submitBtn.innerText = "ОТПРАВИТЬ ЗАПРОС";
+            }
+        });
+    }
         });
     </script>
 </body>
