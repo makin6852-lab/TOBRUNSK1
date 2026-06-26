@@ -1,14 +1,30 @@
+/**
+ * БАЗОВЫЙ МОДУЛЬ ИНИЦИАЛИЗАЦИИ СТРАНИЦЫ (public/dist/js/main.js)
+ * Содержит глобальные плагины, интерактивный таймлайн и анимации.
+ * Логика формы и каталога перенесена в монолитный блок index.html для исключения конфликтов.
+ */
+
+// Объявляем переменную в глобальной области видимости, чтобы её видел скрипт из index.html
+let lenis;
+
 document.addEventListener("DOMContentLoaded", () => {
+    
+    // ==========================================
+    // 1. ИНИЦИАЛИЗАЦИЯ АНИМАЦИЙ ПРИ СКРОЛЛЕ (AOS)
+    // ==========================================
     if (typeof AOS !== 'undefined') {
         AOS.init({ 
             offset: 100, 
             once: true,
             duration: 800,
-            easing: 'ease-out-cubic'
+            easing: 'ease-out-cubic',
+            disable: 'mobile' // Отключаем на мобилках во избежание конфликтов видимости карточек
         });
     }
 
-    let lenis;
+    // ==========================================
+    // 2. ПЛАВНЫЙ СКРОЛЛ (LENIS)
+    // ==========================================
     if (typeof Lenis !== 'undefined') {
         lenis = new Lenis({ 
             duration: 1.2, 
@@ -22,6 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
         requestAnimationFrame(raf);
     }
 
+    // ==========================================
+    // 3. АНИМАЦИЯ ГЕРОЙСКОЙ СЕКЦИИ (BMW ВЫЕЗД)
+    // ==========================================
     const stage = document.getElementById("cinema-stage");
     const body = document.getElementById("layer-body");
     if (stage && body) {
@@ -31,6 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 150);
     }
 
+    // ==========================================
+    // 4. ТРЕКИНГ СКРОЛЛА ДЛЯ ШАПКИ (HEADER)
+    // ==========================================
     const header = document.getElementById("header");
     const heroSection = document.getElementById("hero-section");
     if (header && heroSection) {
@@ -46,6 +68,9 @@ document.addEventListener("DOMContentLoaded", () => {
         headerObserver.observe(heroSection);
     }
 
+    // ==========================================
+    // 5. ИНТЕРАКТИВНЫЙ ТАЙМЛАЙН ПРОЦЕССА РАБОТЫ
+    // ==========================================
     const seg1 = document.getElementById('path-segment-1');
     const seg2 = document.getElementById('path-segment-2');
     const seg3 = document.getElementById('path-segment-3');
@@ -105,17 +130,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }, { passive: true });
     }
 
-    const toggleBtn = document.getElementById('toggle-services-btn');
-    const servicesGrid = document.getElementById('services-grid');
-    if (toggleBtn && servicesGrid) {
-        toggleBtn.addEventListener('click', () => {
-            const isHidden = servicesGrid.classList.toggle('hidden');
-            servicesGrid.classList.toggle('grid', !isHidden);
-            toggleBtn.textContent = isHidden ? 'Каталог' : 'Скрыть';
-            toggleBtn.setAttribute('aria-expanded', !isHidden);
-        });
-    }
-
+    // ==========================================
+    // 6. МАСКА ДЛЯ ВВОДА НОМЕРА ТЕЛЕФОНА
+    // ==========================================
     const phoneInput = document.getElementById('phone-mask');
     if (phoneInput) {
         phoneInput.addEventListener('input', () => {
@@ -127,87 +144,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    const leadForm = document.getElementById('lead-form');
-    const formStatus = document.getElementById('form-status');
-    const privacyCheckbox = document.getElementById('privacy-agree');
-
-    if (leadForm) {
-        leadForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const nameInput = document.getElementById('user-name');
-            let isValid = true;
-
-            if (!nameInput.value.trim()) isValid = false;
-            if (phoneInput.value.replace(/\D/g, "").length < 11) isValid = false;
-
-            if (privacyCheckbox && !privacyCheckbox.checked) {
-                formStatus.innerText = "НЕОБХОДИМО ДАТЬ СОГЛАСИЕ НА ОБРАБОТКУ ДАННЫХ.";
-                formStatus.className = "text-red-500 font-bold uppercase tracking-widest mt-4 text-center block";
-                formStatus.classList.remove('hidden');
-                return;
-            }
-
-            if (!isValid) {
-                formStatus.innerText = "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ПОЛЯ КОРРЕКТНО.";
-                formStatus.className = "text-red-500 font-bold uppercase tracking-widest mt-4 text-center block";
-                formStatus.classList.remove('hidden');
-                return;
-            }
-
-            const submitBtn = leadForm.querySelector('button[type="submit"]');
-            submitBtn.disabled = true;
-            submitBtn.innerText = "ОТПРАВЛЯЕМ ЗАЯВКУ...";
-
-            const formData = {
-                name: nameInput.value.trim(),
-                phone: phoneInput.value
-            };
-
-            try {
-                formStatus.classList.remove('hidden');
-                formStatus.innerText = "СВЯЗЬ С СЕРВЕРОМ...";
-                formStatus.className = "text-white font-bold uppercase tracking-widest mt-4 text-center block";
-
-                const response = await fetch('/api/send-lead', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                });
-
-                if (response.ok) { 
-                    formStatus.innerText = "ЗАЯВКА УСПЕШНО ПРИНЯТА! МАСТЕР СВЯЖЕТСЯ С ВАМИ.";
-                    formStatus.className = "text-green-500 font-bold uppercase tracking-widest mt-4 text-center block";
-                    leadForm.reset();
-                    submitBtn.disabled = true;
-                    submitBtn.innerText = "ОТПРАВЛЕНО";
-                } else {
-                    const errorData = await response.json().catch(() => ({}));
-                    throw new Error(errorData.telegramError || `Ошибка сервера: ${response.status}`);
-                }
-            } catch (error) {
-                console.error("Форма не отправлена:", error);
-                formStatus.innerText = "ОШИБКА СЕРВЕРА. ПОПРОБУЙТЕ ПОЗЖЕ.";
-                formStatus.className = "text-red-500 font-bold uppercase tracking-widest mt-4 text-center block";
-                submitBtn.disabled = false;
-                submitBtn.innerText = "ОТПРАВИТЬ ЗАПРОС";
-            }
-        });
-    }
-
-    const cookieBanner = document.getElementById('cookie-banner');
-    const cookieAcceptBtn = document.getElementById('cookie-accept-btn');
-
-    if (cookieBanner && cookieAcceptBtn) {
-        if (!localStorage.getItem('cookie_accepted')) {
-            cookieBanner.classList.remove('hidden');
-            cookieBanner.classList.add('flex');
-        }
-
-        cookieAcceptBtn.addEventListener('click', () => {
-            localStorage.setItem('cookie_accepted', 'true');
-            cookieBanner.classList.remove('flex');
-            cookieBanner.classList.add('hidden');
-        });
-    }
+    // Подслушиватели событий (Listeners) для каталога и отправки лид-формы 
+    // успешно делегированы в index.html для предотвращения конфликтов перезаписи DOM.
 });

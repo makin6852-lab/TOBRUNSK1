@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ремонт Авто Брянск | Премиальный Техцентр M-Performance</title>
+    <title>Ремонт Авто Брянск | Премиальный Техцентм M-Performance</title>
     <meta name="description" content="Премиальный ремонт и техническое обслуживание автомобилей в Брянске. Диагностика, ТО, замена масла, ремонт АКПП и ДВС. Пригон авто под ключ.">
     <meta name="keywords" content="ремонт авто Брянск, автосервис Брянск, замена масла, ремонт АКПП, пригон авто, диагностика">
     <link rel="canonical" href="https://tmdclub.ru/">
@@ -181,15 +181,16 @@
                 <div class="relative">
                     <div id="services-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 pb-4">
                         
-                        <div class="border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" data-aos="fade-up" tabindex="0" role="button">
+                        <!-- БАГ С КЭШЕМ AOS ИСПРАВЛЕН: АНИМАЦИЯ С БАЗОВЫХ КАРТОЧЕК УБРАНА -->
+                        <div class="border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" tabindex="0" role="button">
                             <div class="text-2xl mb-3" aria-hidden="true">🛢️</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Замена масла в двигателе</h3>
                         </div>
-                        <div class="border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" data-aos="fade-up" data-aos-delay="30" tabindex="0" role="button">
+                        <div class="border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" tabindex="0" role="button">
                             <div class="text-2xl mb-3" aria-hidden="true">⚙️</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Замена масла АКПП, DSG, CVT</h3>
                         </div>
-                        <div class="border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" data-aos="fade-up" data-aos-delay="60" tabindex="0" role="button">
+                        <div class="border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" tabindex="0" role="button">
                             <div class="text-2xl mb-3" aria-hidden="true">❄️</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">ЗАПРАВКА КОНДИЦИОНЕРОВ</h3>
                         </div>
@@ -555,7 +556,7 @@
                         <div class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md p-4 rounded-xl flex items-center gap-4 shadow-[0_4px_20px_0_rgba(0,82,255,0.1)]">
                             <span class="text-xl" aria-hidden="true">📞</span>
                             <div>
-                                <div class="text-[9px] text-[#AAB3C5] uppercase font-bold tracking-widest">Телефон</div>
+                                <div class="text-[9px] text-[#AAB3C5] uppercase font-bold tracking-widest">Telephone</div>
                                 <a href="tel:+74832777741" class="font-bold text-sm text-white hover:text-[#0052FF] transition-colors">+7 (4832) 33-79-99</a>
                             </div>
                         </div>
@@ -651,7 +652,15 @@
     <script src="dist/js/main.js"></script>
     
     <script>
+        /**
+         * Единая продакшн-логика интерактивного взаимодействия сайта
+         * Полностью вычищена от конфликтующих анимаций и дублирования логики.
+         */
         document.addEventListener('DOMContentLoaded', () => {
+            
+            // ------------------------------------------
+            // 1. УПРАВЛЕНИЕ МОБИЛЬНЫМ МЕНЮ
+            // ------------------------------------------
             const menuBtn = document.getElementById('mobile-menu-btn');
             const menuOverlay = document.getElementById('mobile-menu-overlay');
             const burgerIcon = document.getElementById('burger-icon');
@@ -687,35 +696,61 @@
                 });
             }
 
+            // ------------------------------------------
+            // 2. БЕЗБОЛЕЗНЕННЫЙ ПЕРЕКЛЮЧАТЕЛЬ КАТАЛОГА (БЕЗ AOS БАГОВ)
+            // ------------------------------------------
             const toggleBtn = document.getElementById('toggle-services-btn');
-            if (toggleBtn) {
-                const serviceCards = document.querySelectorAll('#services-grid > div:nth-child(n+4)');
-                let isOpen = false;
+            const servicesGrid = document.getElementById('services-grid');
+
+            if (toggleBtn && servicesGrid) {
+                // Извлекаем только те карточки, которые контролируются мобильным CSS-классом скрытия
+                const hiddenCards = servicesGrid.querySelectorAll('.mobile-catalog-hide');
 
                 toggleBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    isOpen = !isOpen;
-                    
-                    serviceCards.forEach(card => {
-                        if (isOpen) {
-                            card.classList.remove('mobile-catalog-hide');
+                    e.stopPropagation(); 
+
+                    // Проверяем текущий статус раскрытия по первой скрытой карточке
+                    const isExpanded = hiddenCards[0]?.classList.contains('mobile-catalog-show');
+
+                    hiddenCards.forEach(card => {
+                        if (!isExpanded) {
                             card.classList.add('mobile-catalog-show');
                         } else {
-                            card.classList.add('mobile-catalog-hide');
                             card.classList.remove('mobile-catalog-show');
                         }
                     });
 
-                    toggleBtn.textContent = isOpen ? 'СВЕРНУТЬ' : 'ОТКРЫТЬ ВЕСЬ КАТАЛОГ';
+                    // Управляем текстом кнопки и доступностью слоёв
+                    if (!isExpanded) {
+                        toggleBtn.textContent = 'СВЕРНУТЬ КАТАЛОГ';
+                        toggleBtn.setAttribute('aria-expanded', 'true');
+                        
+                        // Гарантируем, что кнопка на мобилках будет лежать поверх слоёв при раскрытии
+                        toggleBtn.style.position = 'relative';
+                        toggleBtn.style.zIndex = '50';
+                    } else {
+                        toggleBtn.textContent = 'ОТКРЫТЬ ВЕСЬ КАТАЛОГ';
+                        toggleBtn.setAttribute('aria-expanded', 'false');
+                        toggleBtn.style.cssText = ''; // Мгновенный сброс стилей слоя
 
-                    if (typeof AOS !== 'undefined') AOS.refresh();
-                    if (window.lenis) window.lenis.resize();
-                    if (!isOpen) {
-                        document.getElementById('services').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        // Мягкий скролл к шапке секции услуг при закрытии длинного каталога
+                        document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                    }
+
+                    // Обновляем параметры скролла Lenis под изменившийся размер DOM
+                    try {
+                        if (typeof lenis !== 'undefined' && lenis && typeof lenis.resize === 'function') {
+                            lenis.resize();
+                        }
+                    } catch (err) {
+                        console.log("Lenis resize skipped safely:", err);
                     }
                 });
             }
 
+            // ------------------------------------------
+            // 3. СТИЛИЗАЦИЯ И ВАЛИДАЦИЯ ЧЕКБОКСА ПРИВАТНОСТИ
+            // ------------------------------------------
             const privacy = document.getElementById('privacy-agree');
             const submit = document.getElementById('submit-btn');
 
@@ -731,6 +766,9 @@
                 });
             }
 
+            // ------------------------------------------
+            // 4. КУКИ-БАННЕР
+            // ------------------------------------------
             const cookies = document.getElementById('cookie-banner');
             const acceptCookies = document.getElementById('cookie-accept-btn');
             if (cookies && acceptCookies) {
@@ -743,83 +781,86 @@
                 });
             }
 
+            // ------------------------------------------
+            // 5. ИСПРАВЛЕННАЯ ФОРМА И ЗАЩИТА ОТ ДУБЛИРОВАНИЯ ЗАЯВОК
+            // ------------------------------------------
             const leadForm = document.getElementById('lead-form');
-    const formStatus = document.getElementById('form-status');
-    const privacyCheckbox = document.getElementById('privacy-agree');
-    
+            const formStatus = document.getElementById('form-status');
 
-    let isSubmitting = false; 
+            if (leadForm) {
+                leadForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    // Аппаратный блок против повторных случайных кликов
+                    if (leadForm.dataset.isSubmitting === "true") return; 
 
-    if (leadForm) {
-        leadForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            if (isSubmitting) return; 
+                    const nameInput = document.getElementById('user-name');
+                    const phoneInput = document.getElementById('phone-mask'); // ИСПРАВЛЕНО: Теперь переменная жестко объявлена!
+                    let isValid = true;
 
-            const nameInput = document.getElementById('user-name');
-            let isValid = true;
+                    if (!nameInput || !nameInput.value.trim()) isValid = false;
+                    if (!phoneInput || phoneInput.value.replace(/\D/g, "").length < 11) isValid = false;
 
-            if (!nameInput.value.trim()) isValid = false;
-            if (phoneInput.value.replace(/\D/g, "").length < 11) isValid = false;
+                    if (privacy && !privacy.checked) {
+                        formStatus.innerText = "НЕОБХОДИМО ДАТЬ СОГЛАСИЕ НА ОБРАБОТКУ ДАННЫХ.";
+                        formStatus.className = "text-red-500 font-bold uppercase tracking-widest mt-4 text-center block";
+                        formStatus.classList.remove('hidden');
+                        return;
+                    }
 
-            if (privacyCheckbox && !privacyCheckbox.checked) {
-                formStatus.innerText = "НЕОБХОДИМО ДАТЬ СОГЛАСИЕ НА ОБРАБОТКУ ДАННЫХ.";
-                formStatus.className = "text-red-500 font-bold uppercase tracking-widest mt-4 text-center block";
-                formStatus.classList.remove('hidden');
-                return;
-            }
+                    if (!isValid) {
+                        formStatus.innerText = "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ПОЛЯ КОРРЕКТНО.";
+                        formStatus.className = "text-red-500 font-bold uppercase tracking-widest mt-4 text-center block";
+                        formStatus.classList.remove('hidden');
+                        return;
+                    }
 
-            if (!isValid) {
-                formStatus.innerText = "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ПОЛЯ КОРРЕКТНО.";
-                formStatus.className = "text-red-500 font-bold uppercase tracking-widest mt-4 text-center block";
-                formStatus.classList.remove('hidden');
-                return;
-            }
+                    // Включаем жесткий троттлинг сабмита в DOM
+                    leadForm.dataset.isSubmitting = "true"; 
 
-            isSubmitting = true; 
-
-            const submitBtn = leadForm.querySelector('button[type="submit"]');
-            submitBtn.disabled = true;
-            submitBtn.innerText = "ОТПРАВЛЯЕМ ЗАЯВКУ...";
-
-            const formData = {
-                name: nameInput.value.trim(),
-                phone: phoneInput.value
-            };
-  
-            try {
-                formStatus.classList.remove('hidden');
-                formStatus.innerText = "СВЯЗЬ С СЕРВЕРОМ...";
-                formStatus.className = "text-white font-bold uppercase tracking-widest mt-4 text-center block";
-
-                const response = await fetch('/api/send-lead', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                });
-
-                if (response.ok) { 
-                    formStatus.innerText = "ЗАЯВКА УСПЕШНО ПРИНЯТА! МАСТЕР СВЯЖЕТСЯ С ВАМИ.";
-                    formStatus.className = "text-green-500 font-bold uppercase tracking-widest mt-4 text-center block";
-                    leadForm.reset();
+                    const submitBtn = leadForm.querySelector('button[type="submit"]');
                     submitBtn.disabled = true;
-                    submitBtn.innerText = "ОТПРАВЛЕНО";
-                   
-                } else {
-                    const errorData = await response.json().catch(() => ({}));
-                    throw new Error(errorData.telegramError || `Ошибка сервера: ${response.status}`);
-                }
-            } catch (error) {
-                console.error("Форма не отправлена:", error);
-                formStatus.innerText = "ОШИБКА СЕРВЕРА. ПОПРОБУЙТЕ ПОЗЖЕ.";
-                formStatus.className = "text-red-500 font-bold uppercase tracking-widest mt-4 text-center block";
-                
-                isSubmitting = false; 
-                submitBtn.disabled = false;
-                submitBtn.innerText = "ОТПРАВИТЬ ЗАПРОС";
+                    submitBtn.innerText = "ОТПРАВЛЯЕМ ЗАЯВКУ...";
+
+                    const formData = {
+                        name: nameInput.value.trim(),
+                        phone: phoneInput.value
+                    };
+
+                    try {
+                        formStatus.classList.remove('hidden');
+                        formStatus.innerText = "СВЯЗЬ С СЕРВЕРОМ...";
+                        formStatus.className = "text-white font-bold uppercase tracking-widest mt-4 text-center block";
+
+                        const response = await fetch('/api/send-lead', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(formData)
+                        });
+
+                        if (response.ok) { 
+                            formStatus.innerText = "ЗАЯВКА УСПЕШНО ПРИНЯТА! МАСТЕР СВЯЖЕТСЯ С ВАМИ.";
+                            formStatus.className = "text-green-500 font-bold uppercase tracking-widest mt-4 text-center block";
+                            
+                            leadForm.reset();
+                            submitBtn.disabled = true;
+                            submitBtn.innerText = "ОТПРАВЛЕНО";
+                        } else {
+                            const errorData = await response.json().catch(() => ({}));
+                            throw new Error(errorData.telegramError || `Ошибка сервера: ${response.status}`);
+                        }
+                    } catch (error) {
+                        console.error("Форма не отправлена:", error);
+                        formStatus.innerText = "ОШИБКА СЕРВЕРА. ПОПРОБУЙТЕ ПОЗЖЕ.";
+                        formStatus.className = "text-red-500 font-bold uppercase tracking-widest mt-4 text-center block";
+                        
+                        // Возвращаем форму в боевой режим только в случае реального сбоя сети
+                        leadForm.dataset.isSubmitting = "false"; 
+                        submitBtn.disabled = false;
+                        submitBtn.innerText = "ОТПРАВИТЬ ЗАПРОС";
+                    }
+                });
             }
-        });
-    }
         });
     </script>
 </body>
