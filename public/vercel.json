@@ -2,10 +2,10 @@
   "version": 2,
   "builds": [
     { "src": "api/send-lead.js", "use": "@vercel/node" },
-    { "src": "public/**/*", "use": "@vercel/static" }
+    { "src": "**/*", "use": "@vercel/static" }
   ],
   "routes": [
     { "src": "/api/send-lead", "dest": "api/send-lead.js" },
-    { "src": "/(.*)", "dest": "public/$1" }
+    { "src": "/(.*)", "dest": "$1" }
   ]
 }
