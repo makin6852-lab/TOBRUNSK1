@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- СТРОГОЕ ОТОБРАЖЕНИЕ В ПОИСКЕ ПО ТРЕБОВАНИЮ ЗАКАЗЧИКА -->
     <title>Автосервис ремонт Автобрянск</title>
     <meta name="description" content="Надёжный автосервис в Брянске. Ремонт и техническое обслуживание автомобилей любой сложности.">
     <meta name="keywords" content="ремонт автобрянск, автосервис брянск, техническое обслуживание автомобилей, ремонт авто">
@@ -17,7 +16,7 @@
     <meta property="og:image" content="img/logos.webp">
     <meta name="twitter:card" content="summary_large_image">
 
-    <link class="scroll-smooth" rel="stylesheet" href="dist/css/output.css">
+    <link rel="stylesheet" href="dist/css/output.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     
     <link rel="preload" href="img/logos.webp" as="image" type="image/webp" fetchpriority="high">
@@ -63,7 +62,7 @@
             }
         }
 
-        /* ЖЕСТКИЙ И БЕЗУПРЕЧНЫЙ ДВИЖОК ДЛЯ БЕГУЩЕЙ СТРОКИ СТРОГО ВПРАВО */
+        /* АНИМАЦИЯ БЕГУЩЕЙ СТРОКИ СТРОГО ВПРАВО */
         .ticker-wrap-top {
             position: fixed !important;
             top: 0 !important;
@@ -72,13 +71,13 @@
             height: 36px !important;
             background: #0052FF !important;
             z-index: 99999 !important;
-            overflow: hidden !important;
+            overflow: hidden !hidden;
             display: flex !important;
             align-items: center !important;
             box-shadow: 0 2px 15px rgba(0, 82, 255, 0.4) !important;
         }
         .ticker-container {
-            display: inline-flex !important;
+            display: flex !important;
             width: max-content !important;
             white-space: nowrap !important;
             flex-wrap: nowrap !important;
@@ -146,7 +145,7 @@
             100% { -webkit-transform: translateY(100vh); }
         }
 
-        /* АДАПТИВНЫЙ МИНИ-АПП КАТАЛОГА УСЛУГ С НЕЗАВИСИМЫМ СКРОЛЛОМ ДЛЯ ТЕЛЕФОНОВ */
+        /* АДАПТИВНЫЙ КАТАЛОГ С НЕЗАВИСИМЫМ СКРОЛЛОМ ДЛЯ ТЕЛЕФОНОВ */
         #custom-catalog-modal {
             position: fixed !important;
             top: 0 !important;
@@ -386,7 +385,7 @@
         <div class="rain-drop-line" style="left: 92%; animation-duration: 2.6s; animation-delay: 1.5s;"></div>
     </div>
 
-    <!-- ВЕРХНЯЯ БЕГУЩАЯ СТРОКА (ДВИЖЕНИЕ: СЛЕВА НАПРАВО) -->
+    <!-- ВЕРХНЯЯ БЕГУЩАЯ СТРОКА (НАПРАВЛЕНИЕ: СЛЕВА НАПРАВО) -->
     <div id="stats-ticker-block" class="ticker-wrap-top">
         <div class="ticker-container">
             <div class="ticker-group">
@@ -446,7 +445,8 @@
 
             <div class="flex items-center justify-end gap-5 sm:gap-6 shrink-0">
                 <a href="tel:+74832337999" class="hidden sm:block text-white font-black text-sm hover:text-[#0052FF] transition-colors whitespace-nowrap">+7 (4832) 33-79-99</a>
-                <a href="#order" class="premium-btn sm shrink-0 flex text-[11px] sm:text-xs px-5 py-3">Запись</a>
+                <!-- ПРИВЯЗАНО К ФОРМЕ НА ВТОРОМ СКРИНШОТЕ -->
+                <a href="#contacts" class="premium-btn sm shrink-0 flex text-[11px] sm:text-xs px-5 py-3">Запись</a>
                 
                 <button id="mobile-menu-btn" class="block lg:hidden text-white p-1.5 focus:outline-none z-[70] relative">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -470,7 +470,7 @@
             <a href="#reviews" class="mobile-link hover:text-[#0052FF] transition-colors">Отзывы</a>
             <div class="w-16 h-px bg-white/20 my-2"></div>
             <a href="tel:+74832337999" class="mobile-link text-lg text-[#0052FF] border border-[#0052FF]/30 px-8 py-4 rounded-2xl bg-[#0052FF]/10 backdrop-blur-md shadow-[0_0_20px_rgba(0,82,255,0.2)]">+7 (4832) 33-79-99</a>
-            <a href="#order" class="mobile-link text-sm text-gray-400 mt-2 underline underline-offset-4">Оставить заявку</a>
+            <a href="#contacts" class="mobile-link text-sm text-gray-400 mt-2 underline underline-offset-4">Оставить заявку</a>
         </nav>
     </div>
 
@@ -494,9 +494,11 @@
                     </div>
 
                     <h1 class="text-5xl lg:text-7xl font-black tracking-tighter leading-[0.9] uppercase mb-6 drop-shadow-xl">АВТОСЕРВИС<br/><span class="text-[#0052FF]">РЕМОНТ И ТО</span></h1>
-                    <p class="text-[15px] text-gray-300 uppercase tracking-wider mb-8 max-w-md drop-shadow-md font-medium">Профессиональный сервис в Брянске. Калибровка, дилерское оборудование и запчасти в наличии.</p>
+                    <p class="text-[15px] text-gray-300 uppercase tracking-wider mb-8 max-w-md drop-shadow-md font-medium"> Надёжный автосервис в Брянске.
+Ремонт и техническое обслуживание автомобилей любой сложности.</p>
                     
-                    <a href="#order" class="premium-btn lg shadow-[0_0_30px_rgba(0,82,255,0.4)]" style="padding: 20px 40px !important;">Записаться на ремонт</a>
+                    <!-- ПРИВЯЗАНО К ФОРМЕ НА ВТОРОМ СКРИНШОТЕ -->
+                    <a href="#contacts" class="premium-btn lg shadow-[0_0_30px_rgba(0,82,255,0.4)]" style="padding: 20px 40px !important;">Записаться на ремонт</a>
                 </div>
 
                 <div class="lg:col-span-7 relative flex items-center justify-center mt-10 lg:mt-0 cinema-viewport">
@@ -510,7 +512,7 @@
             </div>
         </section>
 
-        <!-- КАТАЛОГ УСЛУГ -->
+        <!-- КАТАЛОГ УСЛУГ (ПУТИ К ФОТО СКОРРЕКТИРОВАНЫ ПО СКРИНШОТУ IMAGE_F495C1.JPG) -->
         <section id="services" class="py-24 relative z-20">
             <div class="container mx-auto px-6 max-w-7xl">
                 <div class="flex items-center justify-between mb-12 sm:mb-16">
@@ -523,7 +525,7 @@
                         <div class="service-item-card border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
                              data-title="Замена масла в двигателе"
                              data-desc="Регламентный слив отработанного масла, промывка ДВС и заливка нового состава под заводские допуски автомобиля."
-                             data-img="img/oil_service.webp">
+                             data-img="img/photo1.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">🛢️</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Замена масла в двигателе</h3>
                             <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
@@ -532,7 +534,7 @@
                         <div class="service-item-card border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
                              data-title="Замена масла АКПП, DSG, CVT"
                              data-desc="Полная аппаратная или частичная замена трансмиссионной жидкости с заменой фильтров и выставлением уровня по температуре."
-                             data-img="img/transmission_service.webp">
+                             data-img="img/photo2.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">⚙️</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Замена масла АКПП, DSG, CVT</h3>
                             <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
@@ -541,7 +543,7 @@
                         <div class="service-item-card border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
                              data-title="Заправка кондиционеров"
                              data-desc="Вакуумирование системы, проверка на герметичность, откачка старого хладагента и заправка сертифицированным фреоном."
-                             data-img="img/ac_service.webp">
+                             data-img="img/photo3.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">❄️</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Заправка кондиционеров</h3>
                             <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
@@ -550,7 +552,7 @@
                         <div class="service-item-card mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
                              data-title="Ремонт подвески"
                              data-desc="Замена сайлентблоков, рычагов, амортизаторов и шаровых опор. Устранение стуков и восстановление идеальной управляемости."
-                             data-img="img/suspension_service.webp">
+                             data-img="img/photo4.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">🚘</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Ремонт подвески</h3>
                             <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
@@ -559,7 +561,7 @@
                         <div class="service-item-card mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
                              data-title="Шиномонтаж"
                              data-desc="Высокоточная динамическая балансировка, сезонная переобувка колес, ремонт сложных проколов и боковых порезов."
-                             data-img="img/wheels_service.webp">
+                             data-img="img/photo5.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">🛞</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Шиномонтаж</h3>
                             <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
@@ -568,7 +570,7 @@
                         <div class="service-item-card mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
                              data-title="Техническое обслуживание"
                              data-desc="Комплексный осмотр автомобиля по регламенту: оперативная замена фильтров, свечей зажигания, проверка тормозов."
-                             data-img="img/to_service.webp">
+                             data-img="img/photo6.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">📋</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Техническое обслуживание</h3>
                             <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
@@ -577,7 +579,7 @@
                         <div class="service-item-card mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
                              data-title="Ремонт рулевых реек"
                              data-desc="Полный перебор рейки, замена изношенных сальников, втулок, шлифовка вала и полное устранение любых течей."
-                             data-img="img/steering_service.webp">
+                             data-img="img/photo7.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">⚡</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Ремонт рулевых реек</h3>
                             <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
@@ -586,7 +588,7 @@
                         <div class="service-item-card mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_8px_32px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
                              data-title="Ремонт АКПП"
                              data-desc="Компьютерная диагностика трансмиссии, дефектовка гидроблока, замена фрикционов и соленоидов с железной гарантией."
-                             data-img="img/gearbox_repair.webp">
+                             data-img="img/photo8.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">🕹️</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Ремонт АКПП</h3>
                             <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
@@ -595,7 +597,7 @@
                         <div class="service-item-card mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
                              data-title="Ремонт ДВС"
                              data-desc="Капитальный и текущий ремонт моторов, замена цепей/ремней ГРМ, маслосъемных колпачков и эффективное устранение масложора."
-                             data-img="img/dvs_repair.webp">
+                             data-img="img/photo9.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">🔧</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Ремонт ДВС</h3>
                             <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
@@ -604,7 +606,7 @@
                         <div class="service-item-card mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
                              data-title="Ремонт генераторов и стартеров"
                              data-desc="Профессиональная замена щеток, бендиксов, диодных мостов и подшипников для стабильного пуска автомобиля."
-                             data-img="img/generator_service.webp">
+                             data-img="img/photo10.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">🔋</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Ремонт генераторов и стартеров</h3>
                             <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
@@ -613,7 +615,7 @@
                         <div class="service-item-card mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
                              data-title="Промывка форсунок"
                              data-desc="Ультразвуковая или химическая очистка бензиновых топливных форсунок на специализированном стенде."
-                             data-img="img/injectors_service.webp">
+                             data-img="img/photo11.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">🧪</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Промывка форсунок</h3>
                             <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
@@ -622,7 +624,7 @@
                         <div class="service-item-card mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
                              data-title="Чистка орехоструем"
                              data-desc="Безопасное и технологичное удаление нагара с впускных клапанов измельченной скорлупой грецкого ореха."
-                             data-img="img/walnut_service.webp">
+                             data-img="img/photo12.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">🥥</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Чистка орехоструем</h3>
                             <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
@@ -652,7 +654,8 @@
                             </ul>
                         </div>
                         <div class="mt-8 relative z-10">
-                            <a href="#order" class="premium-btn sm w-full sm:w-auto text-center shadow-[0_0_20px_rgba(0,82,255,0.3)]">Участвовать</a>
+                            <!-- ПРИВЯЗАНО К ФОРМЕ НА ВТОРОМ СКРИНШОТЕ -->
+                            <a href="#contacts" class="premium-btn sm w-full sm:w-auto text-center shadow-[0_0_20px_rgba(0,82,255,0.3)]">Участвовать</a>
                         </div>
                     </div>
 
@@ -781,14 +784,14 @@
                                 <div class="flex items-center gap-3">
                                     <div class="w-10 h-10 rounded-full bg-[#0052FF]/20 flex items-center justify-center text-lg text-white font-bold border border-[#0052FF]/40">М</div>
                                     <div>
-                                        <h3 class="text-sm font-bold text-white">Максим Г.</h3>
+                                        <h3 class="text-sm font-bold text-white">Андрей.C</h3>
                                         <p class="text-[10px] text-[#AAB3C5] uppercase tracking-widest">Знаток города</p>
                                     </div>
                                 </div>
                                 <div class="flex text-[#FFD700] text-sm"> ★ ★ ★ ★ ★ </div>
                             </div>
                             <p class="text-xs text-gray-300 leading-relaxed font-medium mb-6 flex-grow">
-                                "Отличный сервис! Приехал на замену масла в АКПП. Ребята сделали всё быстро и аккуратно. В зоне ожидания можно попить кофе и посмотреть за процессом через стекло. Цены адекватные, лишнего не навязывают. Однозначно рекомендую."
+                                "Топ сервис в нашем городе и не только, ребята недавно открылись а уже делают вещи!!! Все для ремонта и обслуживания автомобиля и комфорта посетителей присутствует. Всем рекомендую 👍👍👍 заезжал на ТО и шинку , все сделали быстро и со знанием дела. Полностью осмотрели автомобиль сделали диагностику. Записался на ремонт "
                             </p>
                             <div class="text-[9px] text-[#AAB3C5] uppercase tracking-widest font-bold">Оценка на Яндекс Картах</div>
                         </div>
@@ -924,7 +927,7 @@
             </div>
         </section>
 
-        <!-- КОНТАКТЫ И КАРТЫ С КРУПНЫМИ КНОПКАМИ ИЗ ФАЙЛА IMAGE_AF75BC.JPG -->
+        <!-- КОНТАКТЫ И КАРТЫ С КРУПНЫМИ КНОПКАМИ ИЗ ФАЙЛА IMAGE_AF75BC.JPG (ЦЕЛЕВОЙ ФОРМАТ ВЫРОВНЕН ПО СКРИНШОТУ IMAGE_F49CAE.JPG) -->
         <section id="contacts" class="py-24 relative z-20">
             <div class="container mx-auto px-6 max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-start text-left">
                 
@@ -973,6 +976,7 @@
                         </div>
                     </div>
 
+                    <!-- ТЕЛЕГРАМ БЛОК СТРОГО ПО МАКЕТУ IMAGE_E92198.JPG -->
                     <div class="space-y-3 pt-2">
                         <h3 class="text-xs font-bold uppercase tracking-widest text-[#AAB3C5]">НАПИСАТЬ В МЕССЕНДЖЕР:</h3>
                         <div class="w-full">
@@ -982,7 +986,8 @@
                         </div>
                     </div>
 
-                    <div id=\"order\" class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md p-8 rounded-2xl mt-4 shadow-[0_8px_32px_0_rgba(0,82,255,0.15)]">
+                    <!-- ИДЕНТИФИКАТОР ОЧИЩЕН ОТ КОНФЛИКТНЫХ СТИЛЕЙ, ИМЕННО СЮДА ИДЕТ ПЛАВНЫЙ СКРОЛЛ -->
+                    <div id="order" class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md p-8 rounded-2xl mt-4 shadow-[0_8px_32px_0_rgba(0,82,255,0.15)]">
                         <h3 class="font-bold uppercase tracking-widest mb-6 text-sm">Форма записи</h3>
                         <form id="lead-form" class="space-y-4" novalidate>
                             <div class="relative">
@@ -1106,7 +1111,7 @@
                                 </svg>
                             </div>
                             <div class="premium-dropdown-menu" id="dropdown-options-menu">
-                                <div class="premium-dropdown-option" data-value="ул. Бежицкая, 1Г">ул. Бежицкая, 1Г (Бежицкий район)</div>
+                               <div class="premium-dropdown-option" data-value="ул. Бежицкая, 1Г">ул. Бежицкая, 1Г (Советский район)</div>
                                 <div class="premium-dropdown-option" data-value="ул. 2-я Мичурина, 2-а">ул. 2-я Мичурина, 2-а (Володарский район)</div>
                             </div>
                         </div>
@@ -1146,20 +1151,30 @@
                 });
             }
 
-            // ПЛАВНЫЙ НАВИГАЦИОННЫЙ СКРОЛЛ БЕЗ СБОЕВ КООРДИНАТ И ДЕРГАНЬЯ КУРСOРА
+            // ПОЛНЫЙ И БЕЗУПРЕЧНЫЙ ФИКС ДЛЯ ПЛАВНОГО ПЕРЕХОДА ПО ВСЕМ ССЫЛКАМ БЕЗ ПРЫЖКОВ
+            const handleAnchorScroll = (targetSelector) => {
+                const targetEl = document.querySelector(targetSelector);
+                if (targetEl) {
+                    if (window.lenis) {
+                        window.lenis.scrollTo(targetEl, { offset: -20 });
+                    } else {
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            };
+
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     const targetId = this.getAttribute('href');
                     if (targetId === '#' || !targetId) return;
                     e.preventDefault();
                     e.stopPropagation();
-                    const targetEl = document.querySelector(targetId);
-                    if (targetEl) {
-                        if (window.lenis) {
-                            window.lenis.scrollTo(targetEl);
-                        } else {
-                            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
+                    
+                    // Перенаправление старых ссылок #order на общий блок контактов и формы
+                    if (targetId === '#order') {
+                        handleAnchorScroll('#contacts');
+                    } else {
+                        handleAnchorScroll(targetId);
                     }
                 });
             });
@@ -1322,7 +1337,7 @@
                 });
             }
 
-            // Управление мини-аппом каталога услуг (БЕЗ ЖЕСТКИХ СДВИГОВ И ПРЫЖКОВ ПРИ ВЫХОДЕ)
+            // Управление мини-аппом каталога услуг (СОХРАНЯЕТ КООРДИНАТУ СКРОЛЛА ПРИ ВЫХОДЕ)
             const modal = document.getElementById('custom-catalog-modal');
             const closeBtn = document.getElementById('close-custom-modal');
             const cards = document.querySelectorAll('.service-item-card');
@@ -1344,18 +1359,16 @@
                     imgNode.alt = title;
 
                     modal.style.display = 'flex';
-                    // Плавное отключение скролла без изменения параметров смещения вьюпорта
-                    document.body.classList.add('overflow-hidden');
-                    document.documentElement.classList.add('overflow-hidden');
+                    document.body.style.overflow = 'hidden';
+                    document.documentElement.style.overflow = 'hidden';
                     if (window.lenis) window.lenis.stop();
                 });
             });
 
             const closeModalWindow = () => {
                 modal.style.display = 'none';
-                // Возвращаем скролл ровно на ту позицию, где пользователь и находился
-                document.body.classList.remove('overflow-hidden');
-                document.documentElement.classList.remove('overflow-hidden');
+                document.body.style.overflow = '';
+                document.documentElement.style.overflow = '';
                 document.getElementById('custom-modal-form').reset();
                 hiddenBranchInput.value = '';
                 dropdownSelectedText.textContent = 'ВЫБЕРИТЕ УДОБНЫЙ ФИЛИАЛ';
