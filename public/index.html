@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ремонт Авто Брянск | Премиальный Техцентм M-Performance</title>
-    <meta name="description" content="Премиальный ремонт и техническое обслуживание автомобилей в Брянске. Диагностика, ТО, замена масла, ремонт АКПП и ДВС. Пригон авто под ключ.">
-    <meta name="keywords" content="ремонт авто Брянск, автосервис Брянск, замена масла, ремонт АКПП, пригон авто, диагностика">
+    <!-- СТРОГОЕ ОТОБРАЖЕНИЕ В ПОИСКЕ ПО ТРЕБОВАНИЮ ЗАКАЗЧИКА -->
+    <title>Автосервис ремонт Автобрянск</title>
+    <meta name="description" content="Надёжный автосервис в Брянске. Ремонт и техническое обслуживание автомобилей любой сложности.">
+    <meta name="keywords" content="ремонт автобрянск, автосервис брянск, техническое обслуживание автомобилей, ремонт авто">
 
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval'; script-src 'self' https://unpkg.com https://*.yandex.ru https://*.yandex.net 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://unpkg.com https://fonts.googleapis.com https://*.yandex.ru https://*.yandex.net 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: https://*.yandex.ru https://*.yandex.net; iframe-src 'self' https://yandex.ru https://*.yandex.ru https://yandex.ru/map-widget/v1/;">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Ремонт Авто Брянск | Премиальный Техцентр">
-    <meta property="og:description" content="Премиальный ремонт автомобилей в Брянске. Диагностика, ТО, пригон авто под ключ.">
+    <meta property="og:title" content="Автосервис ремонт Автобрянск">
+    <meta property="og:description" content="Надёжный автосервис в Брянске. Ремонт и техническое обслуживание автомобилей любой сложности.">
     <meta property="og:image" content="img/logos.webp">
     <meta name="twitter:card" content="summary_large_image">
 
-    <link rel="stylesheet" href="dist/css/output.css">
+    <link class="scroll-smooth" rel="stylesheet" href="dist/css/output.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     
     <link rel="preload" href="img/logos.webp" as="image" type="image/webp" fetchpriority="high">
@@ -25,7 +26,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
 
+    <!-- ВСТАВЬ СЮДА КОД СЧЕТЧИКА ЯНДЕКС МЕТРИКИ -->
+
     <style>
+        body { padding-top: 36px !important; }
+        body.overflow-hidden, html.overflow-hidden { overflow: hidden !important; height: 100vh !important; }
+        #header { top: 36px !important; }
+
         @media (max-width: 639px) {
             .mobile-catalog-hide { display: none !important; }
             .mobile-catalog-show { 
@@ -42,8 +49,11 @@
             touch-action: manipulation;
             cursor: pointer;
         }
+        
         #lead-form input[type="text"], 
-        #lead-form input[type="tel"] {
+        #lead-form input[type="tel"],
+        #custom-modal-form input[type="text"], 
+        #custom-modal-form input[type="tel"] {
             -webkit-appearance: none;
             appearance: none;
         }
@@ -52,28 +62,351 @@
                 display: none !important;
             }
         }
-    </style>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "AutoRepair",
-      "name": "Премиальный техцентр M-Performance",
-      "image": "img/logos.webp",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "ул. Бежицкая, 1Г",
-        "addressLocality": "Брянск",
-        "addressRegion": "Брянская область",
-        "postalCode": "241050",
-        "addressCountry": "RU"
-      },
-      "telephone": "+74832777741",
-      "url": "https://tmdclub.ru/"
-    }
-    </script>
+        /* ЖЕСТКИЙ И БЕЗУПРЕЧНЫЙ ДВИЖОК ДЛЯ БЕГУЩЕЙ СТРОКИ СТРОГО ВПРАВО */
+        .ticker-wrap-top {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 36px !important;
+            background: #0052FF !important;
+            z-index: 99999 !important;
+            overflow: hidden !important;
+            display: flex !important;
+            align-items: center !important;
+            box-shadow: 0 2px 15px rgba(0, 82, 255, 0.4) !important;
+        }
+        .ticker-container {
+            display: inline-flex !important;
+            width: max-content !important;
+            white-space: nowrap !important;
+            flex-wrap: nowrap !important;
+            animation: endless-ticker-right 25s linear infinite !important;
+            -webkit-animation: endless-ticker-right 25s linear infinite !important;
+            will-change: transform !important;
+            height: 100% !important;
+            align-items: center !important;
+        }
+        .ticker-group {
+            display: flex !important;
+            align-items: center !important;
+            gap: 50px !important;
+            padding-right: 50px !important;
+            flex-shrink: 0 !important;
+        }
+        .ticker-item {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            color: #ffffff !important;
+            font-family: 'Montserrat', sans-serif !important;
+            white-space: nowrap !important;
+        }
+        .ticker-digit { font-size: 15px !important; font-weight: 900 !important; }
+        .ticker-text-main { font-size: 10px !important; font-weight: 800 !important; text-transform: uppercase !important; letter-spacing: 0.05em !important; }
+        .ticker-separator-dot { width: 5px; height: 5px; background: #ffffff; border-radius: 50%; opacity: 0.5; }
+        
+        @keyframes endless-ticker-right {
+            0% { transform: translate3d(-50%, 0, 0); }
+            100% { transform: translate3d(0, 0, 0); }
+        }
+        @-webkit-keyframes endless-ticker-right {
+            0% { -webkit-transform: translate3d(-50%, 0, 0); }
+            100% { -webkit-transform: translate3d(0, 0, 0); }
+        }
+
+        /* НЕОНОВЫЙ СИНИЙ ДОЖДЬ НА ФОНЕ */
+        .ambient-blue-rain {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            pointer-events: none !important;
+            z-index: 1 !important;
+            overflow: hidden !important;
+            opacity: 0.12 !important;
+        }
+        .rain-drop-line {
+            position: absolute !important;
+            background: linear-gradient(to bottom, transparent, #0052FF) !important;
+            width: 1px !important;
+            height: 140px !important;
+            will-change: transform !important;
+            animation: light-fall linear infinite !important;
+            -webkit-animation: light-fall linear infinite !important;
+        }
+        @keyframes light-fall {
+            0% { transform: translateY(-160px); }
+            100% { transform: translateY(100vh); }
+        }
+        @-webkit-keyframes light-fall {
+            0% { -webkit-transform: translateY(-160px); }
+            100% { -webkit-transform: translateY(100vh); }
+        }
+
+        /* АДАПТИВНЫЙ МИНИ-АПП КАТАЛОГА УСЛУГ С НЕЗАВИСИМЫМ СКРОЛЛОМ ДЛЯ ТЕЛЕФОНОВ */
+        #custom-catalog-modal {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            background: rgba(2, 4, 12, 0.9) !important;
+            backdrop-filter: blur(25px) !important;
+            -webkit-backdrop-filter: blur(25px) !important;
+            z-index: 999999 !important;
+            display: none;
+            align-items: flex-start !important;
+            justify-content: center !important;
+            overflow-y: auto !important;
+            padding: 40px 16px !important;
+            box-sizing: border-box !important;
+            -webkit-overflow-scrolling: touch;
+        }
+        @media (min-width: 768px) {
+            #custom-catalog-modal {
+                align-items: center !important;
+                padding: 24px !important;
+            }
+        }
+        .modal-card-container {
+            position: relative !important;
+            width: 100% !important;
+            max-width: 920px !important; 
+            background: linear-gradient(150deg, #070d1e 0%, #030612 100%) !important;
+            border: 1px solid rgba(0, 82, 255, 0.35) !important;
+            border-radius: 24px !important;
+            padding: 24px !important;
+            box-sizing: border-box !important;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 50px rgba(0, 82, 255, 0.15) !important;
+            margin-top: auto !important;
+            margin-bottom: auto !important;
+        }
+        @media (min-width: 480px) {
+            .modal-card-container { padding: 32px 28px !important; }
+        }
+        .modal-horizontal-layout {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
+            width: 100% !important;
+        }
+        @media (min-width: 768px) {
+            .modal-horizontal-layout {
+                grid-template-columns: 1.15fr 1fr !important;
+                gap: 32px !important;
+            }
+        }
+        .modal-left-side {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 16px !important;
+            width: 100% !important;
+        }
+        .modal-right-side {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 16px !important;
+            width: 100% !important;
+            justify-content: center !important;
+        }
+        .modal-image-wrapper {
+            width: 100% !important;
+            aspect-ratio: 16 / 10 !important; 
+            border-radius: 16px !important;
+            overflow: hidden !important;
+            border: 1px solid rgba(0, 82, 255, 0.2) !important;
+            background: #02040a !important;
+            flex-shrink: 0 !important;
+        }
+        .modal-image-wrapper img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+        }
+        .modal-close-btn {
+            position: absolute !important;
+            top: 12px !important;
+            right: 12px !important;
+            background: rgba(255,255,255,0.03) !important;
+            border: 1px solid rgba(255,255,255,0.08) !important;
+            color: #a1a1aa !important;
+            font-size: 14px !important;
+            cursor: pointer !important;
+            width: 36px !important;
+            height: 36px !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            z-index: 50 !important;
+            transition: all 0.2s ease !important;
+        }
+        .modal-close-btn:hover { 
+            color: #fff !important; 
+            background: rgba(0, 82, 255, 0.2) !important;
+            border-color: rgba(0, 82, 255, 0.5) !important;
+        }
+
+        .custom-input-field {
+            width: 100% !important;
+            background: rgba(10, 15, 30, 0.7) !important;
+            border: 1px solid rgba(255, 255, 255, 0.12) !important;
+            border-radius: 12px !important;
+            color: #fff !important;
+            padding: 15px 16px !important;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            outline: none !important;
+            box-sizing: border-box !important;
+            transition: all 0.25s ease !important;
+        }
+        @media (min-width: 480px) {
+            .custom-input-field { padding: 16px 18px !important; }
+        }
+        .custom-input-field:focus {
+            border-color: #0052FF !important;
+            background: rgba(0, 82, 255, 0.04) !important;
+            box-shadow: 0 0 15px rgba(0, 82, 255, 0.2) !important;
+        }
+        .custom-input-field::placeholder { color: #52525b !important; }
+
+        /* Кастомный выпадающий список */
+        .premium-dropdown-wrapper {
+            position: relative !important;
+            width: 100% !important;
+            user-select: none !important;
+        }
+        .premium-dropdown-trigger {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            cursor: pointer !important;
+        }
+        .premium-dropdown-trigger .arrow-icon {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.25s ease !important;
+            stroke: #0052FF;
+        }
+        .premium-dropdown-wrapper.active .premium-dropdown-trigger {
+            border-color: #0052FF !important;
+            box-shadow: 0 0 15px rgba(0, 82, 255, 0.2) !important;
+        }
+        .premium-dropdown-wrapper.active .arrow-icon {
+            transform: rotate(180deg) !important;
+        }
+        .premium-dropdown-menu {
+            position: absolute !important;
+            top: calc(100% + 6px) !important;
+            left: 0 !important;
+            width: 100% !important;
+            background: #070d1e !important;
+            border: 1px solid rgba(0, 82, 255, 0.3) !important;
+            border-radius: 12px !important;
+            z-index: 99999 !important;
+            display: none;
+            flex-direction: column !important;
+            overflow: hidden !important;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6) !important;
+        }
+        .premium-dropdown-option {
+            padding: 14px 18px !important;
+            font-size: 13px !important;
+            font-weight: 500 !important;
+            color: #a1a1aa !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+            text-align: left !important;
+        }
+        .premium-dropdown-option:hover {
+            background: rgba(0, 82, 255, 0.15) !important;
+            color: #fff !important;
+        }
+        .premium-dropdown-option.selected {
+            background: #0052FF !important;
+            color: #fff !important;
+        }
+        
+        .custom-submit-btn-premium {
+            width: 100% !important;
+            background: #0052FF !important;
+            color: #fff !important;
+            font-weight: 800 !important;
+            text-transform: uppercase !important;
+            font-size: 12px !important;
+            letter-spacing: 0.12em !important;
+            padding: 16px !important;
+            border-radius: 12px !important;
+            border: none !important;
+            cursor: pointer !important;
+            transition: all 0.25s ease !important;
+            box-shadow: 0 4px 15px rgba(0, 82, 255, 0.25) !important;
+            margin-top: 4px !important;
+        }
+        .custom-submit-btn-premium:hover:not(:disabled) { background: #1a66ff !important; box-shadow: 0 0 25px rgba(0, 82, 255, 0.5) !important; }
+        .custom-submit-btn-premium:disabled { background: rgba(255, 255, 255, 0.03) !important; border: 1px solid rgba(255, 255, 255, 0.05) !important; color: #3f3f46 !important; cursor: not-allowed !important; box-shadow: none !important; }
+
+        /* АККУРАТНЫЙ МИНЕРАЛЬНЫЙ БАННЕР КУКИ СПРАВУ ПО ЗАКОНУ РФ */
+        #cookie-banner {
+            position: fixed !important;
+            bottom: 24px !important;
+            right: 24px !important;
+            max-width: 340px !important;
+            width: calc(100% - 48px) !important;
+            background: rgba(7, 13, 30, 0.96) !important;
+            border: 1px solid rgba(0, 82, 255, 0.35) !important;
+            border-radius: 16px !important;
+            padding: 18px !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            z-index: 999999 !important;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 30px rgba(0, 82, 255, 0.15) !important;
+            display: none;
+            flex-direction: column !important;
+            gap: 12px !important;
+            text-align: left !important;
+        }
+        @media (min-width: 640px) {
+            #cookie-banner { width: 340px !important; }
+        }
+    </style>
 </head>
 <body class="text-white antialiased overflow-x-hidden bg-[#030612] bg-[radial-gradient(circle_at_50%_0%,rgba(0,82,255,0.4),transparent_60%),radial-gradient(circle_at_10%_50%,rgba(0,82,255,0.25),transparent_50%),radial-gradient(circle_at_90%_50%,rgba(0,82,255,0.25),transparent_50%),radial-gradient(circle_at_50%_100%,rgba(0,82,255,0.35),transparent_60%)]">
+
+    <!-- ФОНОВЫЙ ЛЕГКИЙ НЕОНОВЫЙ ДОЖДЬ -->
+    <div class="ambient-blue-rain" aria-hidden="true">
+        <div class="rain-drop-line" style="left: 10%; animation-duration: 2.2s; animation-delay: 0s;"></div>
+        <div class="rain-drop-line" style="left: 25%; animation-duration: 2.8s; animation-delay: 0.5s;"></div>
+        <div class="rain-drop-line" style="left: 45%; animation-duration: 2.4s; animation-delay: 1.2s;"></div>
+        <div class="rain-drop-line" style="left: 60%; animation-duration: 3s; animation-delay: 0.2s;"></div>
+        <div class="rain-drop-line" style="left: 78%; animation-duration: 2.1s; animation-delay: 0.7s;"></div>
+        <div class="rain-drop-line" style="left: 92%; animation-duration: 2.6s; animation-delay: 1.5s;"></div>
+    </div>
+
+    <!-- ВЕРХНЯЯ БЕГУЩАЯ СТРОКА (ДВИЖЕНИЕ: СЛЕВА НАПРАВО) -->
+    <div id="stats-ticker-block" class="ticker-wrap-top">
+        <div class="ticker-container">
+            <div class="ticker-group">
+                <div class="ticker-item"><span class="ticker-digit">2500+</span><span class="ticker-text-main">Автомобилей обслужено</span></div>
+                <div class="ticker-separator-dot"></div>
+                <div class="ticker-item"><span class="ticker-digit">100%</span><span class="ticker-text-main">Гарантия на все работы</span></div>
+                <div class="ticker-separator-dot"></div>
+                <div class="ticker-item"><span class="ticker-digit">99%</span><span class="ticker-text-main">Довольных клиентов</span></div>
+                <div class="ticker-separator-dot"></div>
+            </div>
+            <div class="ticker-group" aria-hidden="true">
+                <div class="ticker-item"><span class="ticker-digit">2500+</span><span class="ticker-text-main">Автомобилей обслужено</span></div>
+                <div class="ticker-separator-dot"></div>
+                <div class="ticker-item"><span class="ticker-digit">100%</span><span class="ticker-text-main">Гарантия на все работы</span></div>
+                <div class="ticker-separator-dot"></div>
+                <div class="ticker-item"><span class="ticker-digit">99%</span><span class="ticker-text-main">Довольных клиентов</span></div>
+                <div class="ticker-separator-dot"></div>
+            </div>
+        </div>
+    </div>
 
     <div id="global-thunderstorm" aria-hidden="true">
         <svg class="global-bolt g-bolt-1" viewBox="0 0 100 1000" preserveAspectRatio="none">
@@ -90,40 +423,39 @@
     <div class="studio-lamp lamp-1" aria-hidden="true"></div>
     <div class="studio-lamp lamp-2" aria-hidden="true"></div>
 
-    <header id="header" class="fixed top-0 w-full z-[60] bg-[#030612]/80 backdrop-blur-xl border-b border-[#0052FF]/20 transition-all duration-300">
+    <header id="header" class="fixed w-full z-[60] bg-[#030612]/80 backdrop-blur-xl border-b border-[#0052FF]/20 transition-all duration-300">
         <div class="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between h-20">
-            <div class="flex items-center shrink-0 min-w-0">
-                <a href="#" class="flex items-center group gap-2 sm:gap-4" aria-label="На главную">
-                    <img src="img/logo.png" onerror="this.style.display='none'" class="h-9 sm:h-10 lg:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 shrink-0" alt="Ремонт Авто Брянск">
-                    <div class="flex flex-col min-w-0">
-                        <span class="text-sm sm:text-base lg:text-2xl font-black tracking-widest uppercase leading-none truncate">
-                            РЕМОНТ <span class="text-[#0052FF] group-hover:text-cyan-400 transition-colors">АВТОБРЯНСК</span><span>.</span>
-                        </span>
-                        <span class="text-[8px] lg:text-[10px] text-[#AAB3C5] tracking-widest uppercase mt-1 font-medium hidden sm:block">Премиальный техцентр</span>
-                    </div>
+            
+            <div class="flex items-center shrink-0">
+                <a href="#" class="flex items-center group gap-3" aria-label="На главную">
+                    <img src="img/logo.png" onerror="this.style.display='none'" class="h-9 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105 shrink-0" alt="Ремонт Авто Брянск">
+                    <span class="text-sm sm:text-base lg:text-xl font-black tracking-widest uppercase leading-none truncate">
+                        РЕМОНТ <span class="text-[#0052FF] group-hover:text-cyan-400 transition-colors">АВТОБРЯНСК</span><span>.</span>
+                    </span>
                 </a>
             </div>
 
-            <nav class="hidden lg:flex flex-1 items-center justify-center gap-6 xl:gap-8 text-[12px] xl:text-[13px] font-bold uppercase tracking-widest text-[#AAB3C5]" aria-label="Главная навигация">
+            <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-[12px] xl:text-[13px] font-bold uppercase tracking-widest text-[#AAB3C5] ml-8 xl:ml-12" aria-label="Главная навигация">
                 <a href="#services" class="hover:text-white transition-all">Услуги</a>
                 <a href="#promotions" class="hover:text-white transition-all">Акции</a>
                 <a href="#process" class="hover:text-white transition-all">Процесс</a>
                 <a href="#gallery" class="hover:text-white transition-all">Галерея</a>
-                <a href="#delivery-service" class="hover:text-white transition-all text-[#0052FF]">Пригон Авто</a>
+                <a href="#delivery-service" class="hover:text-white transition-all">Пригон Авто</a>
                 <a href="#reviews" class="hover:text-white transition-all">Отзывы</a>
             </nav>
 
-            <div class="flex items-center justify-end gap-3 sm:gap-5 ml-auto shrink-0">
-                <a href="tel:+74832777741" class="hidden xl:block text-white font-black text-sm hover:text-[#0052FF] transition-colors whitespace-nowrap">+7(4832)33-79-99</a>
-                <a href="#order" class="premium-btn sm shrink-0 flex text-[11px] sm:text-xs px-4 sm:px-6 py-2">Запись</a>
+            <div class="flex items-center justify-end gap-5 sm:gap-6 shrink-0">
+                <a href="tel:+74832337999" class="hidden sm:block text-white font-black text-sm hover:text-[#0052FF] transition-colors whitespace-nowrap">+7 (4832) 33-79-99</a>
+                <a href="#order" class="premium-btn sm shrink-0 flex text-[11px] sm:text-xs px-5 py-3">Запись</a>
                 
-                <button id="mobile-menu-btn" class="block lg:hidden text-white p-1.5 focus:outline-none z-[70] relative ml-1">
-                    <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button id="mobile-menu-btn" class="block lg:hidden text-white p-1.5 focus:outline-none z-[70] relative">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path id="burger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         <path id="close-icon" class="hidden text-[#0052FF]" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
+
         </div>
     </header>
 
@@ -137,7 +469,7 @@
             <a href="#delivery-service" class="mobile-link text-[#0052FF] hover:text-white transition-colors">Пригон Авто</a>
             <a href="#reviews" class="mobile-link hover:text-[#0052FF] transition-colors">Отзывы</a>
             <div class="w-16 h-px bg-white/20 my-2"></div>
-            <a href="tel:+74832777741" class="mobile-link text-lg text-[#0052FF] border border-[#0052FF]/30 px-8 py-4 rounded-2xl bg-[#0052FF]/10 backdrop-blur-md shadow-[0_0_20px_rgba(0,82,255,0.2)]">+7 (4832) 33-79-99</a>
+            <a href="tel:+74832337999" class="mobile-link text-lg text-[#0052FF] border border-[#0052FF]/30 px-8 py-4 rounded-2xl bg-[#0052FF]/10 backdrop-blur-md shadow-[0_0_20px_rgba(0,82,255,0.2)]">+7 (4832) 33-79-99</a>
             <a href="#order" class="mobile-link text-sm text-gray-400 mt-2 underline underline-offset-4">Оставить заявку</a>
         </nav>
     </div>
@@ -151,19 +483,26 @@
             
             <div class="container mx-auto px-6 max-w-7xl relative z-10 grid grid-cols-1 lg:grid-cols-12 h-full items-center">
                 <div class="lg:col-span-5 pt-12 lg:pt-0" data-aos="fade-right">
-                    <div class="w-fit mb-6 px-4 py-2 rounded-full border border-[#0052FF]/40 bg-[#0052FF]/10 backdrop-blur-md shadow-[0_0_20px_rgba(0,82,255,0.2)] flex items-center gap-3">
-                        <div class="w-2 h-2 rounded-full bg-[#0052FF] shadow-[0_0_10px_#0052FF] animate-pulse" aria-hidden="true"></div>
-                        <span class="text-[10px] font-bold uppercase tracking-widest text-white">г. Брянск, ул. Бежицкая, 1Г</span>
+                    
+                    <div class="w-fit mb-6 p-4 rounded-2xl border-2 border-[#0052FF]/60 bg-[#0052FF]/10 backdrop-blur-md shadow-[0_0_25px_rgba(0,82,255,0.25)] flex flex-col gap-1.5 text-left transition-all hover:border-[#0052FF]">
+                        <span class="text-[10px] font-black uppercase tracking-wider text-white flex items-center gap-2.5">
+                            <span class="w-2 h-2 rounded-full bg-[#0052FF] shadow-[0_0_10px_#0052FF]"></span> 1: УЛ. БЕЖИЦКАЯ, 1Г
+                        </span>
+                        <span class="text-[10px] font-black uppercase tracking-wider text-white flex items-center gap-2.5">
+                            <span class="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_10px_#22d3ee]"></span> 2: УЛ. 2-Я МИЧУРИНА, 2-А
+                        </span>
                     </div>
+
                     <h1 class="text-5xl lg:text-7xl font-black tracking-tighter leading-[0.9] uppercase mb-6 drop-shadow-xl">АВТОСЕРВИС<br/><span class="text-[#0052FF]">РЕМОНТ И ТО</span></h1>
-                    <p class="text-[15px] text-gray-300 uppercase tracking-wider mb-8 max-w-md drop-shadow-md">Профессиональный сервис в Брянске. Калибровка, дилерское оборудование и запчасти в наличии.</p>
-                    <a href="#order" class="premium-btn lg shadow-[0_0_30px_rgba(0,82,255,0.4)]">Записаться на ремонт</a>
+                    <p class="text-[15px] text-gray-300 uppercase tracking-wider mb-8 max-w-md drop-shadow-md font-medium">Профессиональный сервис в Брянске. Калибровка, дилерское оборудование и запчасти в наличии.</p>
+                    
+                    <a href="#order" class="premium-btn lg shadow-[0_0_30px_rgba(0,82,255,0.4)]" style="padding: 20px 40px !important;">Записаться на ремонт</a>
                 </div>
 
                 <div class="lg:col-span-7 relative flex items-center justify-center mt-10 lg:mt-0 cinema-viewport">
                     <div id="cinema-stage" class="relative w-full h-full flex items-center justify-center">
                         <div id="car-container" class="relative w-full max-w-[850px] mx-auto translate-y-6 lg:translate-x-4">
-                            <img src="img/logos.webp" id="layer-body" fetchpriority="high" class="relative w-full h-auto z-10 filter contrast-125 brightness-110 drop-shadow-[0_20px_50px_rgba(0,82,255,0.2)]" alt="Премиальный автомобиль BMW">
+                            <img src="img/logos.webp" id="layer-body" fetchpriority="high" class="relative w-full h-auto z-10 filter contrast-125 brightness-110 drop-shadow-[0_20px_50px_rgba(0,82,255,0.2)]" alt="Автомобиль">
                             <div id="car-shadow" aria-hidden="true"></div>
                         </div>
                     </div>
@@ -171,64 +510,122 @@
             </div>
         </section>
 
+        <!-- КАТАЛОГ УСЛУГ -->
         <section id="services" class="py-24 relative z-20">
             <div class="container mx-auto px-6 max-w-7xl">
                 <div class="flex items-center justify-between mb-12 sm:mb-16">
-                    <h2 class="text-3xl font-black uppercase tracking-widest" data-aos="fade-right">Наши <span class="text-[#0052FF]">Услуги</span></h2>
+                    <h2 class="text-3xl font-black uppercase tracking-widest">Наши <span class="text-[#0052FF]">Услуги</span></h2>
                 </div>
                 
                 <div class="relative">
                     <div id="services-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 pb-4">
                         
-                        <!-- БАГ С КЭШЕМ AOS ИСПРАВЛЕН: АНИМАЦИЯ С БАЗОВЫХ КАРТОЧЕК УБРАНА -->
-                        <div class="border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" tabindex="0" role="button">
+                        <div class="service-item-card border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
+                             data-title="Замена масла в двигателе"
+                             data-desc="Регламентный слив отработанного масла, промывка ДВС и заливка нового состава под заводские допуски автомобиля."
+                             data-img="img/oil_service.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">🛢️</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Замена масла в двигателе</h3>
+                            <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
                         </div>
-                        <div class="border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" tabindex="0" role="button">
+                        
+                        <div class="service-item-card border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
+                             data-title="Замена масла АКПП, DSG, CVT"
+                             data-desc="Полная аппаратная или частичная замена трансмиссионной жидкости с заменой фильтров и выставлением уровня по температуре."
+                             data-img="img/transmission_service.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">⚙️</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Замена масла АКПП, DSG, CVT</h3>
+                            <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
                         </div>
-                        <div class="border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" tabindex="0" role="button">
+                        
+                        <div class="service-item-card border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
+                             data-title="Заправка кондиционеров"
+                             data-desc="Вакуумирование системы, проверка на герметичность, откачка старого хладагента и заправка сертифицированным фреоном."
+                             data-img="img/ac_service.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">❄️</div>
-                            <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">ЗАПРАВКА КОНДИЦИОНЕРОВ</h3>
+                            <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Заправка кондиционеров</h3>
+                            <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
                         </div>
 
-                        <div class="mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" tabindex="0" role="button">
+                        <div class="service-item-card mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
+                             data-title="Ремонт подвески"
+                             data-desc="Замена сайлентблоков, рычагов, амортизаторов и шаровых опор. Устранение стуков и восстановление идеальной управляемости."
+                             data-img="img/suspension_service.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">🚘</div>
-                            <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">РЕМОНТ ПОДВЕСКИ</h3>
+                            <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Ремонт подвески</h3>
+                            <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
                         </div>
-                        <div class="mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" tabindex="0" role="button">
+                        
+                        <div class="service-item-card mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
+                             data-title="Шиномонтаж"
+                             data-desc="Высокоточная динамическая балансировка, сезонная переобувка колес, ремонт сложных проколов и боковых порезов."
+                             data-img="img/wheels_service.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">🛞</div>
-                            <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">ШИНОМОНТАЖ</h3>
+                            <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Шиномонтаж</h3>
+                            <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
                         </div>
-                        <div class="mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" tabindex="0" role="button">
+                        
+                        <div class="service-item-card mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
+                             data-title="Техническое обслуживание"
+                             data-desc="Комплексный осмотр автомобиля по регламенту: оперативная замена фильтров, свечей зажигания, проверка тормозов."
+                             data-img="img/to_service.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">📋</div>
-                            <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">ТЕХНИЧЕСКОЕ ОБСЛУЖИВАНИЕ</h3>
+                            <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Техническое обслуживание</h3>
+                            <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
                         </div>
-                        <div class="mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" tabindex="0" role="button">
+                        
+                        <div class="service-item-card mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
+                             data-title="Ремонт рулевых реек"
+                             data-desc="Полный перебор рейки, замена изношенных сальников, втулок, шлифовка вала и полное устранение любых течей."
+                             data-img="img/steering_service.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">⚡</div>
-                            <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">РЕМОНТ РУЛЕВЫХ РЕЕК</h3>
+                            <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Ремонт рулевых реек</h3>
+                            <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
                         </div>
-                        <div class="mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_8px_32px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" tabindex="0" role="button">
+                        
+                        <div class="service-item-card mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_8px_32px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
+                             data-title="Ремонт АКПП"
+                             data-desc="Компьютерная диагностика трансмиссии, дефектовка гидроблока, замена фрикционов и соленоидов с железной гарантией."
+                             data-img="img/gearbox_repair.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">🕹️</div>
-                            <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">РЕМОНТ АКПП</h3>
+                            <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Ремонт АКПП</h3>
+                            <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
                         </div>
-                        <div class="mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" tabindex="0" role="button">
+                        
+                        <div class="service-item-card mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
+                             data-title="Ремонт ДВС"
+                             data-desc="Капитальный и текущий ремонт моторов, замена цепей/ремней ГРМ, маслосъемных колпачков и эффективное устранение масложора."
+                             data-img="img/dvs_repair.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">🔧</div>
-                            <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">РЕМОНТ ДВС</h3>
+                            <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Ремонт ДВС</h3>
+                            <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
                         </div>
-                        <div class="mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" tabindex="0" role="button">
+                        
+                        <div class="service-item-card mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
+                             data-title="Ремонт генераторов и стартеров"
+                             data-desc="Профессиональная замена щеток, бендиксов, диодных мостов и подшипников для стабильного пуска автомобиля."
+                             data-img="img/generator_service.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">🔋</div>
-                            <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">РЕМОНТ генераторов и стартеров</h3>
+                            <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Ремонт генераторов и стартеров</h3>
+                            <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
                         </div>
-                        <div class="mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" tabindex="0" role="button">
+                        
+                        <div class="service-item-card mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
+                             data-title="Промывка форсунок"
+                             data-desc="Ультразвуковая или химическая очистка бензиновых топливных форсунок на специализированном стенде."
+                             data-img="img/injectors_service.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">🧪</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Промывка форсунок</h3>
+                            <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
                         </div>
-                        <div class="mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group" tabindex="0" role="button">
+                        
+                        <div class="service-item-card mobile-catalog-hide sm:!block border border-[#0052FF]/30 bg-[#051024]/80 hover:bg-[#0052FF]/20 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" 
+                             data-title="Чистка орехоструем"
+                             data-desc="Безопасное и технологичное удаление нагара с впускных клапанов измельченной скорлупой грецкого ореха."
+                             data-img="img/walnut_service.webp">
                             <div class="text-2xl mb-3" aria-hidden="true">🥥</div>
                             <h3 class="text-sm md:text-base font-bold uppercase tracking-wider group-hover:text-white text-gray-200 transition-colors">Чистка орехоструем</h3>
+                            <p class="text-[10px] uppercase tracking-widest text-[#0052FF] mt-2 group-hover:text-white transition-colors">Подробнее и запись →</p>
                         </div>
                     </div>
                     
@@ -237,9 +634,10 @@
             </div>
         </section>
 
+        <!-- АКЦИИ -->
         <section id="promotions" class="py-20 relative z-20">
             <div class="container mx-auto px-6 max-w-7xl">
-                <h2 class="text-3xl font-black uppercase tracking-widest mb-16" data-aos="fade-right">Специальные <span class="text-[#0052FF]">Акции</span></h2>
+                <h2 class="text-3xl font-black uppercase tracking-widest mb-16">Специальные <span class="text-[#0052FF]">Акции</span></h2>
                 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     <div class="lg:col-span-7 border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_8px_32px_0_rgba(0,82,255,0.15)] p-6 md:p-8 rounded-3xl relative overflow-hidden flex flex-col justify-between" data-aos="zoom-in">
@@ -269,24 +667,24 @@
                         </div>
                     </div>
 
-                    <div class="lg:col-span-6 border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_8px_32px_0_rgba(0,82,255,0.15)] p-6 md:p-8 rounded-3xl relative overflow-hidden flex flex-col justify-between" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="lg:col-span-6 border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" data-aos="zoom-in" data-aos-delay="100">
                         <div class="space-y-4">
                             <div class="flex items-center justify-between">
                                 <span class="px-3 py-1 text-[9px] font-black uppercase tracking-widest bg-blue-600/20 text-blue-300 rounded-md border border-blue-500/40">Преимущество</span>
                                 <div class="text-xl" aria-hidden="true">🏁</div>
                             </div>
-                            <h3 class="text-xl font-black uppercase tracking-tight text-white">Качество и скорость</h3>
+                            <h3 class="text-xl font-black tracking-tight text-white">Качество и скорость</h3>
                             <p class="text-xs text-gray-300 uppercase font-medium tracking-wide leading-relaxed">Оптимизированные процессы обслуживания. Работаем максимально оперативно, строго следуя заводским картам.</p>
                         </div>
                     </div>
 
-                    <div class="lg:col-span-6 border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_8px_32px_0_rgba(0,82,255,0.15)] p-6 md:p-8 rounded-3xl relative overflow-hidden flex flex-col justify-between" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="lg:col-span-6 border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] transition-all duration-300 p-5 md:p-6 rounded-2xl cursor-pointer group text-left" data-aos="zoom-in" data-aos-delay="150">
                         <div class="space-y-4">
                             <div class="flex items-center justify-between">
                                 <span class="px-3 py-1 text-[9px] font-black uppercase tracking-widest bg-blue-600/20 text-blue-300 rounded-md border border-blue-500/40">Преимущество</span>
                                 <div class="text-xl" aria-hidden="true">👨‍🔧</div>
                             </div>
-                            <h3 class="text-xl font-black uppercase tracking-tight text-white">Квалифицированные мастера</h3>
+                            <h3 class="text-xl font-black tracking-tight text-white">Квалифицированные мастера</h3>
                             <p class="text-xs text-gray-300 uppercase font-medium tracking-wide leading-relaxed">В нашей команде работают инженеры с колоссальным опытом, которые досконально знают устройство систем.</p>
                         </div>
                     </div>
@@ -294,9 +692,10 @@
             </div>
         </section>
 
+        <!-- ПРОЦЕСС РАБОТЫ -->
         <section id="process" class="py-32 relative z-20">
             <div class="container mx-auto px-6 max-w-3xl relative z-10">
-                <h2 class="text-3xl font-black uppercase tracking-widest mb-28 text-center" data-aos="fade-up">Процесс <span class="text-[#0052FF]">Работы</span></h2>
+                <h2 class="text-3xl font-black uppercase tracking-tight mb-28 text-center" data-aos="fade-up">Процесс <span class="text-[#0052FF]">Работы</span></h2>
                 
                 <div class="relative flex flex-col mx-auto" id="timeline-container">
                     <div class="step-node-v opacity-25" id="p-step-1">
@@ -305,8 +704,8 @@
                                 <div class="w-10 h-10 border border-[#0052FF]/40 bg-[#051024]/80 backdrop-blur-md rounded-full flex items-center justify-center text-xs font-mono font-bold text-white node-circle shrink-0 relative z-10">01</div>
                                 <div class="flex-grow w-6 relative my-1 min-h-[60px]">
                                     <svg class="absolute inset-0 w-full h-full" viewBox="0 0 32 100" preserveAspectRatio="none" aria-hidden="true">
-                                        <path d="M16,0 L6,25 L26,50 L6,75 L16,100" stroke="rgba(0, 82, 255, 0.3)" stroke-width="2.5" fill="none"/>
-                                        <path d="M16,0 L6,25 L26,50 L6,75 L16,100" id="path-segment-1" class="lightning-main-path"/>
+                                        <path d="M16,0 L26,25 L6,50 L26,75 L16,100" stroke="rgba(0, 82, 255, 0.3)" stroke-width="2.5" fill="none"/>
+                                        <path d="M16,0 L26,25 L6,50 L26,75 L16,100" id="path-segment-1" class="lightning-main-path"/>
                                     </svg>
                                 </div>
                             </div>
@@ -341,14 +740,14 @@
                                 <div class="w-10 h-10 border border-[#0052FF]/40 bg-[#051024]/80 backdrop-blur-md rounded-full flex items-center justify-center text-xs font-mono font-bold text-white node-circle shrink-0 relative z-10">03</div>
                                 <div class="flex-grow w-6 relative my-1 min-h-[60px]">
                                     <svg class="absolute inset-0 w-full h-full" viewBox="0 0 32 100" preserveAspectRatio="none" aria-hidden="true">
-                                        <path d="M16,0 L6,25 L26,50 L6,75 L16,100" stroke="rgba(0, 82, 255, 0.3)" stroke-width="2.5" fill="none"/>
-                                        <path d="M16,0 L6,25 L26,50 L6,75 L16,100" id="path-segment-3" class="lightning-main-path"/>
+                                        <path d="M16,0 L26,25 L6,50 L26,75 L16,100" stroke="rgba(0, 82, 255, 0.3)" stroke-width="2.5" fill="none"/>
+                                        <path d="M16,0 L26,25 L6,50 L26,75 L16,100" id="path-segment-3" class="lightning-main-path"/>
                                     </svg>
                                 </div>
                             </div>
                             <div class="pb-14 pt-1">
                                 <h3 class="font-bold uppercase tracking-wider text-base mb-2 text-white">Ремонт / ТО</h3>
-                                <p class="text-xs text-gray-400 uppercase leading-relaxed">Устранение неисправностей опытными инженерами по стандартам брендов.</p>
+                                <p class="text-xs text-gray-400 uppercase leading-relaxed">Замена деталей сцепления, приводных цепей, текущий ремонт узлов автомобиля.</p>
                             </div>
                         </div>
                     </div>
@@ -368,6 +767,7 @@
             </div>
         </section>
 
+        <!-- ОТЗЫВЫ -->
         <section id="reviews" class="py-32 relative z-20">
             <div class="container mx-auto px-6 max-w-7xl">
                 <h2 class="text-3xl font-black uppercase tracking-widest mb-4 text-center">Отзывы <span class="text-[#0052FF]">Клиентов</span></h2>
@@ -385,9 +785,7 @@
                                         <p class="text-[10px] text-[#AAB3C5] uppercase tracking-widest">Знаток города</p>
                                     </div>
                                 </div>
-                                <div class="flex text-[#FFD700] text-sm">
-                                    ★ ★ ★ ★ ★
-                                </div>
+                                <div class="flex text-[#FFD700] text-sm"> ★ ★ ★ ★ ★ </div>
                             </div>
                             <p class="text-xs text-gray-300 leading-relaxed font-medium mb-6 flex-grow">
                                 "Отличный сервис! Приехал на замену масла в АКПП. Ребята сделали всё быстро и аккуратно. В зоне ожидания можно попить кофе и посмотреть за процессом через стекло. Цены адекватные, лишнего не навязывают. Однозначно рекомендую."
@@ -407,9 +805,7 @@
                                         <p class="text-[10px] text-[#AAB3C5] uppercase tracking-widest">Клиент</p>
                                     </div>
                                 </div>
-                                <div class="flex text-[#FFD700] text-sm">
-                                    ★ ★ ★ ★ ★
-                                </div>
+                                <div class="flex text-[#FFD700] text-sm"> ★ ★ ★ ★ ★ </div>
                             </div>
                             <p class="text-xs text-gray-300 leading-relaxed font-medium mb-6 flex-grow">
                                 "Делал диагностику двигателя и подвески перед покупкой авто. Инженер всё подробно рассказал, показал каждый нюанс. Оборудование дилерского уровня, чистота в боксах как в операционной. Очень грамотный подход к делу."
@@ -429,9 +825,7 @@
                                         <p class="text-[10px] text-[#AAB3C5] uppercase tracking-widest">Знаток города</p>
                                     </div>
                                 </div>
-                                <div class="flex text-[#FFD700] text-sm">
-                                    ★ ★ ★ ★ ★
-                                </div>
+                                <div class="flex text-[#FFD700] text-sm"> ★ ★ ★ ★ ★ </div>
                             </div>
                             <p class="text-xs text-gray-300 leading-relaxed font-medium mb-6 flex-grow">
                                 "Пригонял машину из Кореи через этот сервис. Сопровождали на всех этапах: от подбора до постановки на учёт. Машина пришла в идеале, сразу же сделали полное ТО. Спасибо команде за профессионализм!"
@@ -449,6 +843,7 @@
             </div>
         </section>
 
+        <!-- ГАЛЕРЕЯ -->
         <section id="gallery" class="py-24 relative z-20">
             <div class="container mx-auto px-6 max-w-7xl">
                 <h2 class="text-3xl font-black uppercase tracking-widest mb-4">Галерея <span class="text-[#0052FF]">Техцентра</span></h2>
@@ -462,9 +857,9 @@
                         </div>
                     </div>
                     <div class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] p-2 rounded-2xl overflow-hidden h-64 relative group">
-                        <img src="img/foto2.webp" loading="lazy" decoding="async" class="w-full h-full object-cover rounded-xl opacity-80 group-hover:opacity-100 transition-opacity duration-500" alt="Премиальная зона ожидания">
+                        <img src="img/foto2.webp" loading="lazy" decoding="async" class="w-full h-full object-cover rounded-xl opacity-80 group-hover:opacity-100 transition-opacity duration-500" alt="Зона ожидания">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#030612]/90 via-transparent to-transparent p-6 flex items-end pointer-events-none">
-                            <span class="text-xs font-bold uppercase tracking-wider text-white drop-shadow-md">Премиальная зона ожидания</span>
+                            <span class="text-xs font-bold uppercase tracking-wider text-white drop-shadow-md">Комфортная зона ожидания</span>
                         </div>
                     </div>
                     <div class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] p-2 rounded-2xl overflow-hidden h-64 relative group">
@@ -486,25 +881,24 @@
                         </div>
                     </div>
                     <div class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_4px_20px_0_rgba(0,82,255,0.15)] p-2 rounded-2xl overflow-hidden h-64 relative group">
-                        <img src="img/foto6.webp" loading="lazy" decoding="async" class="w-full h-full object-cover rounded-xl opacity-80 group-hover:opacity-100 transition-opacity duration-500" alt="Диагностический пост M-Performance">
+                        <img src="img/foto6.webp" loading="lazy" decoding="async" class="w-full h-full object-cover rounded-xl opacity-80 group-hover:opacity-100 transition-opacity duration-500" alt="Диагностический пост">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#030612]/90 via-transparent to-transparent p-6 flex items-end pointer-events-none">
-                            <span class="text-xs font-bold uppercase tracking-wider text-white drop-shadow-md">Диагностический пост M-Performance</span>
+                            <span class="text-xs font-bold uppercase tracking-wider text-white drop-shadow-md">Диагностический пост</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ПРИГОН АВТО -->
         <section id="delivery-service" class="max-w-7xl mx-auto px-4 py-16 mb-20 relative z-20">
             <div class="flex flex-col lg:flex-row items-center justify-between gap-12 border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md shadow-[0_8px_32px_0_rgba(0,82,255,0.15)] p-8 md:p-12 rounded-3xl overflow-hidden">
                 
                 <div class="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-[#0052FF]/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
                 <div class="w-full lg:w-1/2 flex flex-col justify-center relative z-10 text-left">
-                    <span class="text-[10px] uppercase font-bold tracking-widest text-[#0052FF] mb-3">Премиальный сервис доставки</span>
-                    <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight text-white mb-6 leading-tight">
-                        Пригон<br>автомобилей под ключ
-                    </h2>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-[#0052FF] mb-3">Надежный сервис доставки</span>
+                    <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight text-white mb-6 leading-tight"> Пригон<br>автомобилей под ключ </h2>
                     <p class="text-xs md:text-sm text-gray-300 uppercase tracking-wide font-medium leading-relaxed mb-8">
                         Мы берем на себя всю ответственность: от профессионального подбора и детальной выездной диагностики за рубежом до таможенной очистки и постановки на учет в РФ. Получите идеальный автомобиль без рисков и переплат.
                     </p>
@@ -514,8 +908,8 @@
                         <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-[#0052FF] shadow-[0_0_10px_rgba(0,82,255,1)]"></span> Строгий договор и фиксированная комиссия</li>
                     </ul>
                     <div>
-                        <a href="#order" class="inline-block bg-[#0052FF] hover:bg-blue-600 text-white font-bold uppercase tracking-widest text-xs py-4 px-8 rounded-xl shadow-[0_0_30px_rgba(0,82,255,0.4)] transition-all duration-300 text-center">
-                            Оставить заявку на расчет
+                        <a href="https://carme.club" target="_blank" rel="noopener" class="inline-block bg-[#0052FF] hover:bg-blue-600 text-white font-bold uppercase tracking-widest text-xs py-4 px-8 rounded-xl shadow-[0_0_30px_rgba(0,82,255,0.4)] transition-all duration-300 text-center">
+                            Посмотреть каталог
                         </a>
                     </div>
                 </div>
@@ -530,17 +924,27 @@
             </div>
         </section>
 
+        <!-- КОНТАКТЫ И КАРТЫ С КРУПНЫМИ КНОПКАМИ ИЗ ФАЙЛА IMAGE_AF75BC.JPG -->
         <section id="contacts" class="py-24 relative z-20">
             <div class="container mx-auto px-6 max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-start text-left">
                 
-                <div class="lg:col-span-5 space-y-8">
-                    <h2 class="text-3xl font-black uppercase tracking-wider mb-8">Контакты техцентра</h2>
-                    <div class="space-y-4">
+                <div class="lg:col-span-5 space-y-6">
+                    <h2 class="text-3xl font-black uppercase tracking-wider mb-4">Контакты техцентра</h2>
+                    
+                    <div class="space-y-3">
                         <div class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md p-4 rounded-xl flex items-center gap-4 shadow-[0_4px_20px_0_rgba(0,82,255,0.1)]">
                             <span class="text-xl" aria-hidden="true">📍</span>
                             <div>
-                                <div class="text-[9px] text-[#AAB3C5] uppercase font-bold tracking-widest">Адрес объекта</div>
-                                <div class="font-bold text-sm text-white">г. Брянск, ул. Бежицкая, 1Г — Техническое Обслуживание (ТО)</div>
+                                <div class="text-[9px] text-[#AAB3C5] uppercase font-bold tracking-widest">Основной филиал</div>
+                                <div class="font-bold text-sm text-white">г. Брянск, ул. Бежицкая, 1Г</div>
+                            </div>
+                        </div>
+
+                        <div class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md p-4 rounded-xl flex items-center gap-4 shadow-[0_4px_20px_0_rgba(0,82,255,0.1)]">
+                            <span class="text-xl" aria-hidden="true">📍</span>
+                            <div>
+                                <div class="text-[9px] text-[#AAB3C5] uppercase font-bold tracking-widest">Второй филиал</div>
+                                <div class="font-bold text-sm text-white">г. Брянск, ул. 2-я Мичурина, 2-а</div>
                             </div>
                         </div>
                         
@@ -555,111 +959,304 @@
                         <div class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md p-4 rounded-xl flex items-center gap-4 shadow-[0_4px_20px_0_rgba(0,82,255,0.1)]">
                             <span class="text-xl" aria-hidden="true">📞</span>
                             <div>
-                                <div class="text-[9px] text-[#AAB3C5] uppercase font-bold tracking-widest">Telephone</div>
-                                <a href="tel:+74832777741" class="font-bold text-sm text-white hover:text-[#0052FF] transition-colors">+7 (4832) 33-79-99</a>
+                                <div class="text-[9px] text-[#AAB3C5] uppercase font-bold tracking-widest">Телефон связи</div>
+                                <a href="tel:+74832337999" class="font-bold text-sm text-white hover:text-[#0052FF] transition-colors">+7 (4832) 33-79-99</a>
+                            </div>
+                        </div>
+
+                        <div class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md p-4 rounded-xl flex items-center gap-4 shadow-[0_4px_20px_0_rgba(0,82,255,0.1)]">
+                            <span class="text-xl" aria-hidden="true">✉️</span>
+                            <div>
+                                <div class="text-[9px] text-[#AAB3C5] uppercase font-bold tracking-widest">E-mail для запросов</div>
+                                <a href="mailto:remontautobryansk@mail.ru" class="font-bold text-sm text-white hover:text-[#0052FF] transition-colors">remontautobryansk@mail.ru</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="space-y-3 pt-4">
-                        <h3 class="text-xs font-bold uppercase tracking-widest text-[#AAB3C5]">Написать в мессенджер:</h3>
+                    <div class="space-y-3 pt-2">
+                        <h3 class="text-xs font-bold uppercase tracking-widest text-[#AAB3C5]">НАПИСАТЬ В МЕССЕНДЖЕР:</h3>
                         <div class="w-full">
-                            <a href="https://t.me/mak2n" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 p-4 bg-[rgba(0,82,255,0.2)] hover:bg-[rgba(0,82,255,0.4)] border border-[#0052FF] text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-all shadow-[0_0_25px_rgba(0,82,255,0.3)]">
-                                ✈️ Связаться в Telegram
+                            <a href="https://t.me/remont_autobryansk" target="_blank" rel="noopener" class="flex items-center justify-center gap-2.5 p-4 bg-[rgba(0,82,255,0.12)] hover:bg-[rgba(0,82,255,0.25)] border border-[#0052FF] text-white rounded-xl text-xs font-bold uppercase tracking-widest transition-all shadow-[0_0_25px_rgba(0,82,255,0.2)]">
+                                ✈️ СВЯЗАТЬСЯ В TELEGRAM
                             </a>
                         </div>
                     </div>
 
-                    <div id="order" class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md p-8 rounded-2xl mt-8 shadow-[0_8px_32px_0_rgba(0,82,255,0.15)]">
+                    <div id=\"order\" class="border border-[#0052FF]/30 bg-[#051024]/80 backdrop-blur-md p-8 rounded-2xl mt-4 shadow-[0_8px_32px_0_rgba(0,82,255,0.15)]">
                         <h3 class="font-bold uppercase tracking-widest mb-6 text-sm">Форма записи</h3>
-                        
                         <form id="lead-form" class="space-y-4" novalidate>
                             <div class="relative">
-                                <input type="text" id="user-name" name="name" required placeholder="ВАШЕ ИМЯ" autocomplete="name" class="w-full p-4 rounded-xl bg-[#030612]/50 border border-white/20 text-white text-xs outline-none focus:border-[#0052FF] transition-colors" aria-label="Ваше имя" />
+                                <input type="text" id="user-name" name="name" required placeholder="ВАШЕ ИМЯ (ДО 20 БУКВ)" maxlength="20" oninput="this.value = this.value.replace(/[^a-zA-Zа-яА-ЯёЁ\s]/g, '')" autocomplete="name" class="w-full p-4 rounded-xl bg-[#030612]/50 border border-white/20 text-white text-xs outline-none focus:border-[#0052FF] transition-colors" />
                             </div>
-                            
                             <div class="relative">
-                                <input type="tel" id="phone-mask" name="phone" required placeholder="+7 (___) ___-__-__" autocomplete="tel" class="w-full p-4 rounded-xl bg-[#030612]/50 border border-white/20 text-white text-xs outline-none focus:border-[#0052FF] transition-colors" aria-label="Номер телефона" />
+                                <input type="tel" id="phone-mask" name="phone" required placeholder="+7 (9XX) XXX-XX-XX" autocomplete="tel" class="w-full p-4 rounded-xl bg-[#030612]/50 border border-white/20 text-white text-xs outline-none focus:border-[#0052FF] transition-colors" />
                             </div>
-                            
                             <div class="flex items-start gap-2 pt-2">
-                                <input type="checkbox" id="privacy-agree" class="mt-0.5 w-4 h-4 rounded border-[#0052FF]/50 bg-[#030612] checked:bg-[#0052FF] cursor-pointer focus:ring-0" aria-label="Согласие на обработку персональных данных" />
-                                <label for="privacy-agree" class="text-[9px] text-[#AAB3C5] uppercase tracking-wide leading-normal cursor-pointer select-none">
+                                <input type="checkbox" id="privacy-agree" class="mt-0.5 w-4 h-4 rounded border-[#0052FF]/50 bg-[#030612] checked:bg-[#0052FF] cursor-pointer focus:ring-0" />
+                                <label for="privacy-agree" class="text-[9px] text-[#AAB3C5] uppercase tracking-wide leading-normal cursor-pointer select-none text-left">
                                     ДАЮ СОГЛАСИЕ НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ В СООТВЕТСТВИИ С <a href="privacy.html" target="_blank" class="text-[#0052FF] underline hover:text-white">ФЗ №152-ФЗ</a>.
                                 </label>
                             </div>
-                            
                             <button type="submit" id="submit-btn" disabled class="w-full mt-4 rounded-xl uppercase tracking-widest font-black text-xs py-5 text-center text-gray-500 bg-white/5 border border-white/10 cursor-not-allowed transition-all duration-300">Отправить запрос</button>
                         </form>
                         <div id="form-status" class="hidden text-xs font-bold uppercase tracking-widest mt-4 text-center"></div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-7 w-full h-[400px] lg:h-[600px] rounded-3xl overflow-hidden border border-[#0052FF]/30 bg-[#051024]/80 p-2 backdrop-blur-md shadow-[0_8px_32px_0_rgba(0,82,255,0.15)]">
-                    <iframe src="https://yandex.ru/map-widget/v1/?ll=34.349412%2C53.270329&mode=search&oid=42649917495&ol=biz&z=16.5" 
-                            loading="lazy"
-                            class="w-full h-full rounded-2xl border-0 opacity-95 hover:opacity-100 transition-opacity duration-300" 
-                            title="Расположение техцентра на Яндекс Картах">
-                    </iframe>
+                <!-- КАРТЫ С ПЕРЕКЛЮЧАТЕЛЕМ -->
+                <div class="lg:col-span-7 w-full flex flex-col gap-5">
+                    <div class="flex rounded-xl bg-[#051024]/80 p-1.5 border border-[#0052FF]/30 w-full sm:w-max">
+                        <button id="btn-map-1" class="flex-1 sm:flex-none text-[11px] uppercase font-black tracking-widest px-6 py-4 rounded-lg bg-[#0052FF] text-white transition-all shadow-[0_0_15px_rgba(0,82,255,0.3)]">Филиал Бежицкая</button>
+                        <button id="btn-map-2" class="flex-1 sm:flex-none text-[11px] uppercase font-black tracking-widest px-6 py-4 rounded-lg text-[#AAB3C5] hover:text-white transition-all">Филиал Мичурина</button>
+                    </div>
+
+                    <div class="w-full h-[400px] lg:h-[550px] rounded-3xl overflow-hidden border border-[#0052FF]/30 bg-[#051024]/80 p-2 backdrop-blur-md shadow-[0_8px_32px_0_rgba(0,82,255,0.15)] relative">
+                        <!-- Карта 1 -->
+                        <iframe id="iframe-map-1" src="https://yandex.ru/map-widget/v1/?ll=34.349412%2C53.270329&mode=search&oid=42649917495&ol=biz&z=16.5" 
+                                loading="lazy"
+                                class="w-full h-full rounded-2xl border-0 opacity-95 hover:opacity-100 transition-all duration-300 absolute inset-0 p-2 box-border block" 
+                                title="Расположение Бежицкая на Яндекс Картах">
+                        </iframe>
+                        <!-- Карта 2 -->
+                        <iframe id="iframe-map-2" src="https://yandex.ru/map-widget/v1/?ll=34.426081%2C53.263602&mode=search&oid=30510385004&ol=biz&z=16.27" 
+                                loading="lazy"
+                                class="w-full h-full rounded-2xl border-0 opacity-95 hover:opacity-100 transition-all duration-300 absolute inset-0 p-2 box-border hidden" 
+                                title="Расположение Мичурина на Яндекс Картах">
+                        </iframe>
+                    </div>
                 </div>
 
             </div>
         </section>
     </main>
 
+    <!-- ПОДВАЛ -->
     <footer class="border-t border-[#0052FF]/20 bg-[#030612] relative z-20 py-12 mt-10 text-left">
         <div class="container mx-auto px-6 max-w-7xl">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start text-left">
                 
                 <div class="md:col-span-5 space-y-3">
                     <p class="text-xs font-black uppercase tracking-widest text-white">© 2026 Ремонт Автобрянск.</p>
-                    <p class="text-[10px] uppercase tracking-wider text-[#AAB3C5] leading-relaxed">
-                        Ремонт Автобрянск<br>
-                        Индивидуальный предприниматель / Организация<br>
-                        ОГРН / ОГРНИП: <span class="text-white font-mono">в процессе заполнения</span><br>
-                        ИНН: <span class="text-white font-mono">в процессе заполнения</span>
+                    <p class="text-[10px] uppercase tracking-wider text-[#a1a1aa] leading-relaxed font-medium">
+                        Индивидуальный предприниматель Якуш Артем Викторович<br>
+                        Филиалы: ул. Бежицкая, 1Г | ул. 2-я Мичурина, 2-а<br>
+                        E-mail: <a href="mailto:remontautobryansk@mail.ru" class="hover:underline">remontautobryansk@mail.ru</a><br>
+                        ОГРНИП: <span class="text-white font-mono font-bold">320325600024931</span><br>
+                        ИНН: <span class="text-white font-mono font-bold">323307381024</span>
                     </p>
                 </div>
 
-                <div class="md:col-span-4 space-y-2 text-[9px] uppercase tracking-wider text-[#7E889B] leading-normal">
-                    <p>*Сайт использует файлы cookie для персонализации сервисов и удобства пользователей. Ознакомьтесь с условиями защиты персональных данных.</p>
-                    <p>Вся информация на сайте носит исключительно информационный характер и ни при каких условиях не является публичной офертой, определяемой положениями Статьи 437 Гражданского кодекса РФ.</p>
+                <div class="md:col-span-4 space-y-2 text-[9px] uppercase tracking-wider text-[#a1a1aa] leading-normal font-medium">
+                    <p>*Сайт использует файлы cookie. Ознакомьтесь с условиями защиты персональных данных.</p>
+                    <p>Вся информация на сайте носит информационный характер и не является публичной офертой, определяемой положениями Статьи 437 ГК РФ.</p>
                 </div>
 
-                <div class="md:col-span-3 flex flex-col md:items-end gap-2.5 text-[10px] font-bold uppercase tracking-widest text-[#AAB3C5]">
+                <div class="md:col-span-3 flex flex-col md:items-end gap-3 text-[10px] font-bold uppercase tracking-widest text-[#AAB3C5]">
                     <a href="privacy.html" class="hover:text-[#0052FF] transition-colors">Политика конфиденциальности</a>
                     <a href="agreement.html" class="hover:text-[#0052FF] transition-colors">Пользовательское соглашение</a>
                 </div>
 
             </div>
-
-            <div class="mt-8 pt-6 border-t border-white/5 text-center">
-                <p class="text-[9px] uppercase tracking-widest text-[#535C6C]">Разработано в соответствии с законодательством РФ (152-ФЗ, ГК РФ).</p>
-            </div>
         </div>
     </footer>
 
-    <div id="cookie-banner" class="fixed bottom-6 inset-x-6 mx-auto max-w-4xl border border-[#0052FF]/30 bg-[#051024]/95 p-4 rounded-xl backdrop-blur-md z-[9999] hidden flex-col sm:flex-row items-center justify-between gap-4 shadow-[0_0_30px_rgba(0,82,255,0.2)]">
-        <div class="text-[11px] uppercase tracking-wider text-gray-200 font-medium leading-relaxed text-center sm:text-left">
-            Наш сайт использует файлы cookie. Продолжая использовать сайт, вы соглашаетесь с условиями <a href="privacy.html" class="text-[#0052FF] underline hover:text-white">Политики конфиденциальности</a>.
+    <!-- АККУРАТНЫЙ МИНЕРАЛЬНЫЙ БАННЕР КУКИ СПРАВУ ПО ЗАКОНУ РФ -->
+    <div id="cookie-banner">
+        <div style="font-size: 11px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.03em; color: #e4e4e7; line-height: 1.4;">
+            Наш сайт использует файлы cookie. Подробные условия сбора и защиты данных изложены в нашей 
+            <a href="privacy.html" class="text-[#0052FF] underline hover:text-white transition-colors" style="font-weight: 800;">Политике конфиденциальности</a>.
         </div>
-        <button id="cookie-accept-btn" class="premium-btn sm shrink-0 w-full sm:w-auto">Принять</button>
+        <button id="cookie-accept-btn" class="custom-submit-btn-premium" style="margin: 0 !important; padding: 12px !important;">Принять</button>
     </div>
 
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="dist/js/main.js"></script>
+    <!-- МИНИ-АПП КАТАЛОГА УСЛУГ С СУПЕР-СКРОЛЛОМ -->
+    <div id="custom-catalog-modal">
+        <div class="modal-card-container">
+            <button id="close-custom-modal" class="modal-close-btn">✕</button>
+
+            <div class="modal-horizontal-layout">
+                <div class="modal-left-side">
+                    <div class="modal-image-wrapper">
+                        <img id="custom-modal-img" src="" alt="Услуга">
+                    </div>
+                    <h3 id="custom-modal-title" class="text-xl md:text-2xl font-black uppercase tracking-tight text-[#0052FF]" style="text-align: left; line-height: 1.15;"></h3>
+                    <p id="custom-modal-desc" style="font-size: 13px; color: #d4d4d8; font-weight: 500; line-height: 1.4; margin: 0; text-align: left;"></p>
+                </div>
+
+                <div class="modal-right-side">
+                    <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(0, 82, 255, 0.06); border: 1px solid rgba(0, 82, 255, 0.2); padding: 14px; border-radius: 14px; box-sizing: border-box; width: 100%;">
+                        <div style="text-align: left;">
+                            <span style="font-size: 8px; text-transform: uppercase; font-weight: 700; color: #71717a; display: block; letter-spacing: 0.05em; margin-bottom: 2px;">Консультация мастера:</span>
+                            <a href="tel:+74832337999" style="font-size: 16px; font-weight: 900; color: #fff; text-decoration: none;">+7 (4832) 33-79-99</a>
+                        </div>
+                    </div>
+
+                    <form id="custom-modal-form" style="display: flex; flex-direction: column; gap: 14px; text-align: left; width: 100%;" novalidate>
+                        <input type="hidden" id="custom-service-name" name="service_name" value="">
+                        
+                        <input type="text" id="custom-user-name" required placeholder="ВАШЕ ИМЯ" maxlength="20" oninput="this.value = this.value.replace(/[^a-zA-Zа-яА-ЯёЁ\s]/g, '')" class="custom-input-field" />
+                        <input type="tel" id="custom-phone-mask" required placeholder="+7 (9XX) XXX-XX-XX" class="custom-input-field" />
+                        
+                        <div class="premium-dropdown-wrapper" id="custom-branch-dropdown">
+                            <input type="hidden" id="custom-branch-value" value="">
+                            <div class="custom-input-field premium-dropdown-trigger">
+                                <span id="dropdown-selected-text" style="color: #52525b;">ВЫБЕРИТЕ УДОБНЫЙ ФИЛИАЛ</span>
+                                <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 10L12 15L17 10" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="premium-dropdown-menu" id="dropdown-options-menu">
+                                <div class="premium-dropdown-option" data-value="ул. Бежицкая, 1Г">ул. Бежицкая, 1Г (Бежицкий район)</div>
+                                <div class="premium-dropdown-option" data-value="ул. 2-я Мичурина, 2-а">ул. 2-я Мичурина, 2-а (Володарский район)</div>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: start; gap: 8px; margin-top: 2px;">
+                            <input type="checkbox" id="custom-privacy-agree" style="margin-top: 2px; width: 15px; height: 15px; accent-color: #0052FF; cursor: pointer; flex-shrink: 0;" />
+                            <label for="custom-privacy-agree" style="font-size: 9px; color: #71717a; text-transform: uppercase; font-weight: 600; line-height: 1.3; cursor: pointer; user-select: none;">
+                                Даю согласие на обработку данных в соответствии с <a href="privacy.html" target="_blank" style="color: #0052FF; text-decoration: underline;">Политикой</a>.
+                            </label>
+                        </div>
+                        
+                        <button type="submit" id="custom-submit-btn" disabled class="custom-submit-btn-premium">Записаться на обслуживание</button>
+                    </form>
+                    <div id="custom-form-status" class="hidden text-xs font-bold uppercase tracking-widest text-center" style="margin-top: 4px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js" defer></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="dist/js/main.js" defer></script>
     
     <script>
-        /**
-         * Единая продакшн-логика интерактивного взаимодействия сайта
-         * Полностью вычищена от конфликтующих анимаций и дублирования логики.
-         */
         document.addEventListener('DOMContentLoaded', () => {
             
-            // ------------------------------------------
-            // 1. УПРАВЛЕНИЕ МОБИЛЬНЫМ МЕНЮ
-            // ------------------------------------------
+            // Логика куки-баннера
+            const cookieBanner = document.getElementById('cookie-banner');
+            const cookieAcceptBtn = document.getElementById('cookie-accept-btn');
+            if (cookieBanner && cookieAcceptBtn) {
+                if (!localStorage.getItem('cookie-accepted-ab-v4')) {
+                    cookieBanner.style.display = 'flex';
+                }
+                cookieAcceptBtn.addEventListener('click', () => {
+                    localStorage.setItem('cookie-accepted-ab-v4', 'true');
+                    cookieBanner.style.display = 'none';
+                });
+            }
+
+            // ПЛАВНЫЙ НАВИГАЦИОННЫЙ СКРОЛЛ БЕЗ СБОЕВ КООРДИНАТ И ДЕРГАНЬЯ КУРСOРА
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#' || !targetId) return;
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        if (window.lenis) {
+                            window.lenis.scrollTo(targetEl);
+                        } else {
+                            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                });
+            });
+
+            // Кастомный выпадающий список филиалов
+            const dropdownWrapper = document.getElementById('custom-branch-dropdown');
+            const dropdownTrigger = dropdownWrapper?.querySelector('.premium-dropdown-trigger');
+            const dropdownMenu = document.getElementById('dropdown-options-menu');
+            const dropdownSelectedText = document.getElementById('dropdown-selected-text');
+            const hiddenBranchInput = document.getElementById('custom-branch-value');
+            const customSubmitBtn = document.getElementById('custom-submit-btn');
+            const customPrivacyAgree = document.getElementById('custom-privacy-agree');
+
+            if (dropdownTrigger && dropdownMenu) {
+                dropdownTrigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isOpen = dropdownWrapper.classList.contains('active');
+                    if (isOpen) {
+                        dropdownWrapper.classList.remove('active');
+                        dropdownMenu.style.display = 'none';
+                    } else {
+                        dropdownWrapper.classList.add('active');
+                        dropdownMenu.style.display = 'flex';
+                    }
+                });
+
+                dropdownMenu.querySelectorAll('.premium-dropdown-option').forEach(option => {
+                    option.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const val = option.getAttribute('data-value');
+                        hiddenBranchInput.value = val;
+                        dropdownSelectedText.textContent = option.textContent;
+                        dropdownSelectedText.style.color = '#fff';
+                        
+                        dropdownMenu.querySelectorAll('.premium-dropdown-option').forEach(o => o.classList.remove('selected'));
+                        option.classList.add('selected');
+                        
+                        dropdownWrapper.classList.remove('active');
+                        dropdownMenu.style.display = 'none';
+                    });
+                });
+
+                document.addEventListener('click', () => {
+                    dropdownWrapper.classList.remove('active');
+                    dropdownMenu.style.display = 'none';
+                });
+            }
+
+            // Фикс маски телефона РФ (+7)
+            const handlePhoneInput = (e) => {
+                const input = e.target;
+                let numValue = input.value.replace(/\D/g, "");
+                if (numValue.startsWith("7") || numValue.startsWith("8")) numValue = numValue.substring(1);
+                numValue = numValue.substring(0, 10);
+                
+                let formatted = "+7 ";
+                if (numValue.length > 0) formatted += "(" + numValue.substring(0, 3);
+                if (numValue.length >= 4) formatted += ") " + numValue.substring(3, 6);
+                else if (numValue.length > 3) formatted += ") " + numValue.substring(3);
+                if (numValue.length >= 7) formatted += "-" + numValue.substring(6, 8);
+                else if (numValue.length > 6) formatted += "-" + numValue.substring(6);
+                if (numValue.length >= 9) formatted += "-" + numValue.substring(8, 10);
+                else if (numValue.length > 8) formatted += "-" + numValue.substring(8);
+                input.value = formatted;
+            };
+
+            const phoneInputs = [document.getElementById('phone-mask'), document.getElementById('custom-phone-mask')];
+            phoneInputs.forEach(input => {
+                if(!input) return;
+                input.addEventListener('input', handlePhoneInput);
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === "Backspace" && input.value.replace(/\D/g, "").length <= 1) input.value = "";
+                });
+            });
+
+            // Карта
+            const btnMap1 = document.getElementById('btn-map-1');
+            const btnMap2 = document.getElementById('btn-map-2');
+            const map1 = document.getElementById('iframe-map-1');
+            const map2 = document.getElementById('iframe-map-2');
+
+            if(btnMap1 && btnMap2 && map1 && map2) {
+                btnMap1.addEventListener('click', () => {
+                    map1.classList.remove('hidden'); map1.classList.add('block');
+                    map2.classList.remove('block'); map2.classList.add('hidden');
+                    btnMap1.className = "flex-1 sm:flex-none text-[11px] uppercase font-black tracking-widest px-6 py-4 rounded-lg bg-[#0052FF] text-white transition-all shadow-[0_0_15px_rgba(0,82,255,0.3)]";
+                    btnMap2.className = "flex-1 sm:flex-none text-[11px] uppercase font-black tracking-widest px-6 py-4 rounded-lg text-[#AAB3C5] hover:text-white transition-all";
+                });
+                btnMap2.addEventListener('click', () => {
+                    map2.classList.remove('hidden'); map2.classList.add('block');
+                    map1.classList.remove('block'); map1.classList.add('hidden');
+                    btnMap2.className = "flex-1 sm:flex-none text-[11px] uppercase font-black tracking-widest px-6 py-4 rounded-lg bg-[#0052FF] text-white transition-all shadow-[0_0_15px_rgba(0,82,255,0.3)]";
+                    btnMap1.className = "flex-1 sm:flex-none text-[11px] uppercase font-black tracking-widest px-6 py-4 rounded-lg text-[#AAB3C5] hover:text-white transition-all";
+                });
+            }
+
+            // Мобильное меню
             const menuBtn = document.getElementById('mobile-menu-btn');
             const menuOverlay = document.getElementById('mobile-menu-overlay');
             const burgerIcon = document.getElementById('burger-icon');
@@ -695,22 +1292,17 @@
                 });
             }
 
-            // ------------------------------------------
-            // 2. БЕЗБОЛЕЗНЕННЫЙ ПЕРЕКЛЮЧАТЕЛЬ КАТАЛОГА (БЕЗ AOS БАГОВ)
-            // ------------------------------------------
+            // Рабочий переключатель каталога услуг
             const toggleBtn = document.getElementById('toggle-services-btn');
             const servicesGrid = document.getElementById('services-grid');
 
             if (toggleBtn && servicesGrid) {
-                // Извлекаем только те карточки, которые контролируются мобильным CSS-классом скрытия
                 const hiddenCards = servicesGrid.querySelectorAll('.mobile-catalog-hide');
-
                 toggleBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
                     e.stopPropagation(); 
-
-                    // Проверяем текущий статус раскрытия по первой скрытой карточке
-                    const isExpanded = hiddenCards[0]?.classList.contains('mobile-catalog-show');
-
+                    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+                    
                     hiddenCards.forEach(card => {
                         if (!isExpanded) {
                             card.classList.add('mobile-catalog-show');
@@ -718,38 +1310,66 @@
                             card.classList.remove('mobile-catalog-show');
                         }
                     });
-
-                    // Управляем текстом кнопки и доступностью слоёв
-                    if (!isExpanded) {
-                        toggleBtn.textContent = 'СВЕРНУТЬ КАТАЛОГ';
+                    
+                    if(!isExpanded) {
                         toggleBtn.setAttribute('aria-expanded', 'true');
-                        
-                        // Гарантируем, что кнопка на мобилках будет лежать поверх слоёв при раскрытии
-                        toggleBtn.style.position = 'relative';
-                        toggleBtn.style.zIndex = '50';
+                        toggleBtn.textContent = 'СВЕРНУТЬ КАТАЛОГ';
                     } else {
-                        toggleBtn.textContent = 'ОТКРЫТЬ ВЕСЬ КАТАЛОГ';
                         toggleBtn.setAttribute('aria-expanded', 'false');
-                        toggleBtn.style.cssText = ''; // Мгновенный сброс стилей слоя
-
-                        // Мягкий скролл к шапке секции услуг при закрытии длинного каталога
+                        toggleBtn.textContent = 'ОТКРЫТЬ ВЕСЬ КАТАЛОГ';
                         document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
-                    }
-
-                    // Обновляем параметры скролла Lenis под изменившийся размер DOM
-                    try {
-                        if (typeof lenis !== 'undefined' && lenis && typeof lenis.resize === 'function') {
-                            lenis.resize();
-                        }
-                    } catch (err) {
-                        console.log("Lenis resize skipped safely:", err);
                     }
                 });
             }
 
-            // ------------------------------------------
-            // 3. СТИЛИЗАЦИЯ И ВАЛИДАЦИЯ ЧЕКБОКСА ПРИВАТНОСТИ
-            // ------------------------------------------
+            // Управление мини-аппом каталога услуг (БЕЗ ЖЕСТКИХ СДВИГОВ И ПРЫЖКОВ ПРИ ВЫХОДЕ)
+            const modal = document.getElementById('custom-catalog-modal');
+            const closeBtn = document.getElementById('close-custom-modal');
+            const cards = document.querySelectorAll('.service-item-card');
+
+            document.body.appendChild(modal);
+
+            cards.forEach(card => {
+                card.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+
+                    const title = card.getAttribute('data-title');
+                    document.getElementById('custom-modal-title').textContent = title;
+                    document.getElementById('custom-modal-desc').textContent = card.getAttribute('data-desc');
+                    document.getElementById('custom-service-name').value = title; 
+                    
+                    const imgNode = document.getElementById('custom-modal-img');
+                    imgNode.src = card.getAttribute('data-img');
+                    imgNode.alt = title;
+
+                    modal.style.display = 'flex';
+                    // Плавное отключение скролла без изменения параметров смещения вьюпорта
+                    document.body.classList.add('overflow-hidden');
+                    document.documentElement.classList.add('overflow-hidden');
+                    if (window.lenis) window.lenis.stop();
+                });
+            });
+
+            const closeModalWindow = () => {
+                modal.style.display = 'none';
+                // Возвращаем скролл ровно на ту позицию, где пользователь и находился
+                document.body.classList.remove('overflow-hidden');
+                document.documentElement.classList.remove('overflow-hidden');
+                document.getElementById('custom-modal-form').reset();
+                hiddenBranchInput.value = '';
+                dropdownSelectedText.textContent = 'ВЫБЕРИТЕ УДОБНЫЙ ФИЛИАЛ';
+                dropdownSelectedText.style.color = '#52525b';
+                dropdownMenu.querySelectorAll('.premium-dropdown-option').forEach(o => o.classList.remove('selected'));
+                customSubmitBtn.disabled = true;
+                document.getElementById('custom-form-status').classList.add('hidden');
+                if (window.lenis) window.lenis.start();
+            };
+
+            if (closeBtn) closeBtn.addEventListener('click', closeModalWindow);
+            modal.addEventListener('click', (e) => { if (e.target === modal) closeModalWindow(); });
+
+            // Согласие 152-ФЗ
             const privacy = document.getElementById('privacy-agree');
             const submit = document.getElementById('submit-btn');
 
@@ -765,99 +1385,107 @@
                 });
             }
 
-            // ------------------------------------------
-            // 4. КУКИ-БАННЕР
-            // ------------------------------------------
-            const cookies = document.getElementById('cookie-banner');
-            const acceptCookies = document.getElementById('cookie-accept-btn');
-            if (cookies && acceptCookies) {
-                if (!localStorage.getItem('cookie-accepted')) {
-                    cookies.style.display = 'flex';
-                }
-                acceptCookies.addEventListener('click', () => {
-                    cookies.style.display = 'none';
-                    localStorage.setItem('cookie-accepted', 'true');
+            if (customPrivacyAgree && customSubmitBtn) {
+                customPrivacyAgree.addEventListener('change', function() {
+                    customSubmitBtn.disabled = !this.checked;
                 });
             }
 
-            // ------------------------------------------
-            // 5. ИСПРАВЛЕННАЯ ФОРМА И ЗАЩИТА ОТ ДУБЛИРОВАНИЯ ЗАЯВОК
-            // ------------------------------------------
-            const leadForm = document.getElementById('lead-form');
-            const formStatus = document.getElementById('form-status');
+            // Отправка данных и Яндекс.Метрика
+            const handleFormSubmit = async (formElement, statusElement, nameId, phoneId, privacyElement, isModal = false) => {
+                if (formElement.dataset.isSubmitting === "true") return;
 
-            if (leadForm) {
-                leadForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    
-                    // Аппаратный блок против повторных случайных кликов
-                    if (leadForm.dataset.isSubmitting === "true") return; 
+                const nameInput = document.getElementById(nameId);
+                const phoneInput = document.getElementById(phoneId);
+                
+                const isNameValid = nameInput && nameInput.value.trim().length >= 2;
+                const isPhoneValid = phoneInput && phoneInput.value.replace(/\D/g, "").length === 11;
+                const branchValue = isModal ? hiddenBranchInput.value : 'Главная форма сайта';
 
-                    const nameInput = document.getElementById('user-name');
-                    const phoneInput = document.getElementById('phone-mask'); // ИСПРАВЛЕНО: Теперь переменная жестко объявлена!
-                    let isValid = true;
+                if (privacyElement && !privacyElement.checked) {
+                    statusElement.innerText = "НЕОБХОДИМО ДАТЬ СОГЛАСИЕ НА ОБРАБОТКУ ДАННЫХ.";
+                    statusElement.className = "text-red-500 font-bold uppercase tracking-widest mt-4 text-center block";
+                    statusElement.classList.remove('hidden');
+                    return;
+                }
 
-                    if (!nameInput || !nameInput.value.trim()) isValid = false;
-                    if (!phoneInput || phoneInput.value.replace(/\D/g, "").length < 11) isValid = false;
+                if (isModal && !branchValue) {
+                    statusElement.innerText = "ПОЖАЛУЙСТА, ВЫБЕРИТЕ ФИЛИАЛ ТЕХЦЕНТРА.";
+                    statusElement.className = "text-red-500 font-bold uppercase tracking-widest mt-4 text-center block";
+                    statusElement.classList.remove('hidden');
+                    return;
+                }
 
-                    if (privacy && !privacy.checked) {
-                        formStatus.innerText = "НЕОБХОДИМО ДАТЬ СОГЛАСИЕ НА ОБРАБОТКУ ДАННЫХ.";
-                        formStatus.className = "text-red-500 font-bold uppercase tracking-widest mt-4 text-center block";
-                        formStatus.classList.remove('hidden');
-                        return;
-                    }
+                if (!isNameValid || !isPhoneValid) {
+                    statusElement.innerText = "ЗАПОЛНИТЕ КОРРЕКТНО ИМЯ И МОБИЛЬНЫЙ НОМЕР РФ.";
+                    statusElement.className = "text-red-500 font-bold uppercase tracking-widest mt-4 text-center block";
+                    statusElement.classList.remove('hidden');
+                    return;
+                }
 
-                    if (!isValid) {
-                        formStatus.innerText = "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ПОЛЯ КОРРЕКТНО.";
-                        formStatus.className = "text-red-500 font-bold uppercase tracking-widest mt-4 text-center block";
-                        formStatus.classList.remove('hidden');
-                        return;
-                    }
+                formElement.dataset.isSubmitting = "true";
+                const submitButton = formElement.querySelector('button[type="submit"]');
+                const originalText = submitButton.innerText;
+                submitButton.disabled = true;
+                submitButton.innerText = "ОТПРАВКА...";
 
-                    // Включаем жесткий троттлинг сабмита в DOM
-                    leadForm.dataset.isSubmitting = "true"; 
+                try {
+                    statusElement.classList.remove('hidden');
+                    statusElement.innerText = "ОТПРАВКА ЗАЯВКИ...";
+                    statusElement.className = "text-white font-bold uppercase tracking-widest mt-4 text-center block";
 
-                    const submitBtn = leadForm.querySelector('button[type="submit"]');
-                    submitBtn.disabled = true;
-                    submitBtn.innerText = "ОТПРАВЛЯЕМ ЗАЯВКУ...";
+                    const response = await fetch('/api/send-lead', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            name: nameInput.value.trim(),
+                            phone: phoneInput.value,
+                            branch: branchValue,
+                            service: document.getElementById('custom-service-name').value || 'Общая заявка на ремонт'
+                        })
+                    });
 
-                    const formData = {
-                        name: nameInput.value.trim(),
-                        phone: phoneInput.value
-                    };
-
-                    try {
-                        formStatus.classList.remove('hidden');
-                        formStatus.innerText = "СВЯЗЬ С СЕРВЕРОМ...";
-                        formStatus.className = "text-white font-bold uppercase tracking-widest mt-4 text-center block";
-
-                        const response = await fetch('/api/send-lead', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(formData)
-                        });
-
-                        if (response.ok) { 
-                            formStatus.innerText = "ЗАЯВКА УСПЕШНО ПРИНЯТА! МАСТЕР СВЯЖЕТСЯ С ВАМИ.";
-                            formStatus.className = "text-green-500 font-bold uppercase tracking-widest mt-4 text-center block";
-                            
-                            leadForm.reset();
-                            submitBtn.disabled = true;
-                            submitBtn.innerText = "ОТПРАВЛЕНО";
-                        } else {
-                            const errorData = await response.json().catch(() => ({}));
-                            throw new Error(errorData.telegramError || `Ошибка сервера: ${response.status}`);
-                        }
-                    } catch (error) {
-                        console.error("Форма не отправлена:", error);
-                        formStatus.innerText = "ОШИБКА СЕРВЕРА. ПОПРОБУЙТЕ ПОЗЖЕ.";
-                        formStatus.className = "text-red-500 font-bold uppercase tracking-widest mt-4 text-center block";
+                    if (response.ok) {
+                        statusElement.innerText = "ЗАЯВКА УСПЕШНО ПРИНЯТА! МАСТЕР СВЯЖЕТСЯ С ВАМИ.";
+                        statusElement.className = "text-green-500 font-bold uppercase tracking-widest mt-4 text-center block";
                         
-                        // Возвращаем форму в боевой режим только в случае реального сбоя сети
-                        leadForm.dataset.isSubmitting = "false"; 
-                        submitBtn.disabled = false;
-                        submitBtn.innerText = "ОТПРАВИТЬ ЗАПРОС";
+                        if (typeof ym !== 'undefined') {
+                            ym(99999999, 'reachGoal', 'lead_success'); 
+                        }
+
+                        formElement.reset();
+                        if (isModal) {
+                            hiddenBranchInput.value = '';
+                            dropdownSelectedText.textContent = 'ВЫБЕРИТЕ УДОБНЫЙ ФИЛИАЛ';
+                            dropdownSelectedText.style.color = '#52525b';
+                            dropdownMenu.querySelectorAll('.premium-dropdown-option').forEach(o => o.classList.remove('selected'));
+                        }
+                        submitButton.innerText = "ОТПРАВЛЕНО";
+                    } else {
+                        throw new Error();
                     }
+                } catch (err) {
+                    statusElement.innerText = "ОШИБКА СЕТИ. ПОПРОБУЙТЕ ПОЗЖЕ.";
+                    statusElement.className = "text-red-500 font-bold uppercase tracking-widest mt-4 text-center block";
+                    formElement.dataset.isSubmitting = "false";
+                    submitButton.disabled = false;
+                    submitButton.innerText = originalText;
+                }
+            };
+
+            const leadForm = document.getElementById('lead-form');
+            if (leadForm) {
+                leadForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    handleFormSubmit(leadForm, document.getElementById('form-status'), 'user-name', 'phone-mask', privacy, false);
+                });
+            }
+
+            const modalFormEl = document.getElementById('custom-modal-form');
+            if (modalFormEl) {
+                modalFormEl.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    handleFormSubmit(modalFormEl, document.getElementById('custom-form-status'), 'custom-user-name', 'custom-phone-mask', customPrivacyAgree, true);
                 });
             }
         });
